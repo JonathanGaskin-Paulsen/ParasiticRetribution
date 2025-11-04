@@ -1,0 +1,337 @@
+fileFormatVersion: 2
+guid: d9b644da48b7a7d46b7695f582849719
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MiniBossLeftCharge_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 61
+        width: 62
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e96bd32a0b70e4284c7aaee5c90858
+      internalID: 732929683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBossLeftCharge_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 61
+        width: 61
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d09e49332b799d47ad8d3815db276b8
+      internalID: 337817874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBossLeftCharge_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 61
+        width: 59
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef9d24bbeeb08f943acc75b35c6a96eb
+      internalID: 1325883658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBossLeftCharge_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 61
+        width: 90
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578837cb648b4b54f9d64723287a91a1
+      internalID: 481968198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBossLeftCharge_4
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 61
+        width: 96
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ed9a1724ba1cb48be9c2f15fba862e
+      internalID: 1689984169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBossLeftCharge_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 61
+        width: 98
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c97ec1786d5bbe84eb359857f1e1bb8d
+      internalID: -2103361341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBossLeftCharge_6
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 61
+        width: 89
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 811f8de5e7d580d4a899a699b84bb522
+      internalID: 2139873471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBossLeftCharge_7
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 61
+        width: 61
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3735dee77f26d9b48bd15182fd16b1cc
+      internalID: 1093295207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      MiniBossLeftCharge_6: 2139873471
+      MiniBossLeftCharge_16: -864367558
+      MiniBossLeftCharge_35: 372910615
+      MiniBossLeftCharge_38: 365862866
+      MiniBossLeftCharge_11: 117188206
+      MiniBossLeftCharge_17: -1243893917
+      MiniBossLeftCharge_22: 649812716
+      MiniBossLeftCharge_26: -1289100341
+      MiniBossLeftCharge_40: 1844462939
+      MiniBossLeftCharge_1: 337817874
+      MiniBossLeftCharge_13: -880242915
+      MiniBossLeftCharge_23: 1477781460
+      MiniBossLeftCharge_7: 1093295207
+      MiniBossLeftCharge_21: 1903418871
+      MiniBossLeftCharge_9: 1503113501
+      MiniBossLeftCharge_19: 1142297220
+      MiniBossLeftCharge_12: -1076840054
+      MiniBossLeftCharge_20: 882753422
+      MiniBossLeftCharge_37: -1582101246
+      MiniBossLeftCharge_39: -911757060
+      MiniBossLeftCharge_0: 732929683
+      MiniBossLeftCharge_41: 1394346933
+      MiniBossLeftCharge_3: 481968198
+      MiniBossLeftCharge_10: -402910457
+      MiniBossLeftCharge_5: -2103361341
+      MiniBossLeftCharge_24: 1472104003
+      MiniBossLeftCharge_42: 687350874
+      MiniBossLeftCharge_8: 2028100241
+      MiniBossLeftCharge_14: -2123602573
+      MiniBossLeftCharge_15: 1392496396
+      MiniBossLeftCharge_25: 2122480826
+      MiniBossLeftCharge_4: 1689984169
+      MiniBossLeftCharge_2: 1325883658
+      MiniBossLeftCharge_36: -51369558
+      MiniBossLeftCharge_18: 834244530
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

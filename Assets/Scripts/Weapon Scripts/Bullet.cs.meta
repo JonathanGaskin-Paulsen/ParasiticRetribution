@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: f2b18a3a0cb2e6445acc7fce03e856ee
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - EPNG: {fileID: 9015893761913705044, guid: c92c19ec60f1bbe4c985308246e3869a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

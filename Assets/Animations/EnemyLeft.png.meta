@@ -1,0 +1,332 @@
+fileFormatVersion: 2
+guid: f957be4f770443e40a994f8a3b25d615
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EnemyLeft_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 46
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2801414320ea8974ab83afd0ad7fdbe5
+      internalID: 849563328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyLeft_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 200
+        width: 48
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30b1f1abf97be8842a1a01cc341dfa5c
+      internalID: 568847729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyLeft_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 200
+        width: 53
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56be460ab8e79c543907030e08e4db6d
+      internalID: -846486787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyLeft_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 200
+        width: 54
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8bd0fb0aac550644a6f453ff0ba20e1
+      internalID: -1451127331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyLeft_4
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 200
+        width: 56
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c08967ab86f98049874c70092a28bee
+      internalID: -1548637582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyLeft_5
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 200
+        width: 54
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b227c339e94875446b514050ca1080f8
+      internalID: -1213176861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyLeft_6
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 199
+        width: 50
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 546747940e95b96429e44e08d65c7c09
+      internalID: -2014667874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      EnemyLeft_34: 1200517673
+      EnemyLeft_21: 272011733
+      EnemyLeft_37: -1321828340
+      EnemyLeft_17: 1760507257
+      EnemyLeft_36: -1727692257
+      EnemyLeft_22: -1304462250
+      EnemyLeft_11: -792445666
+      EnemyLeft_5: -1213176861
+      EnemyLeft_42: -1237300664
+      EnemyLeft_3: -1451127331
+      EnemyLeft_12: -1612547020
+      EnemyLeft_27: 162999495
+      EnemyLeft_9: 102057192
+      EnemyLeft_32: -1819144246
+      EnemyLeft_20: 1708023628
+      EnemyLeft_46: 1283421036
+      EnemyLeft_48: 1120632998
+      EnemyLeft_25: 1799396347
+      EnemyLeft_26: 219052051
+      EnemyLeft_23: -1692680927
+      EnemyLeft_44: 2022064844
+      EnemyLeft_38: 1740694446
+      EnemyLeft_7: 391569152
+      EnemyLeft_33: 335418787
+      EnemyLeft_43: 2106716514
+      EnemyLeft_10: 2063365572
+      EnemyLeft_45: 1341248668
+      EnemyLeft_8: -582054759
+      EnemyLeft_14: 2054135549
+      EnemyLeft_28: 1753206179
+      EnemyLeft_40: 950698432
+      EnemyLeft_49: -235197447
+      EnemyLeft_1: 568847729
+      EnemyLeft_30: 109782052
+      EnemyLeft_31: -1768690972
+      EnemyLeft_29: 1062330440
+      EnemyLeft_50: -1872908575
+      EnemyLeft_4: -1548637582
+      EnemyLeft_16: -515951726
+      EnemyLeft_47: -1730862479
+      EnemyLeft_2: -846486787
+      EnemyLeft_35: -1971898569
+      EnemyLeft_18: 2125323495
+      EnemyLeft_6: -2014667874
+      EnemyLeft_19: -1226753649
+      EnemyLeft_39: 103876915
+      EnemyLeft_41: -991990340
+      EnemyLeft_0: 849563328
+      EnemyLeft_24: 943924350
+      EnemyLeft_13: -1726269732
+      EnemyLeft_15: -1525972685
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
