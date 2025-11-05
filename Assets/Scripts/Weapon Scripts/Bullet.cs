@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
         Vector3 vector = mP - direction;
         vector.z = 0;
         vel = vector.normalized * PS;
-        gameObject.GetComponent<Rigidbody2D>().velocity = vel;
+        gameObject.GetComponent<Rigidbody2D>().linearVelocity = vel;
     }
 
     // Update is called once per frame

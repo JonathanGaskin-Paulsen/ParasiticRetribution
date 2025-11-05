@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         {
             dashActiveSpeed = moveSpeed;
         }
-        rigidBodyPlayer.velocity = moveDir * dashActiveSpeed;
+        rigidBodyPlayer.linearVelocity = moveDir * dashActiveSpeed;
     }
     void ProcessDash(){
         float dashM = 1;

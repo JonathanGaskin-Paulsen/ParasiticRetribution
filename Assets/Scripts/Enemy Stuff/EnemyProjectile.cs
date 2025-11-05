@@ -14,14 +14,14 @@ public class EnemyProjectile : MonoBehaviour
     void Start()
     {
 
-        gameObject.GetComponent<Rigidbody2D>().velocity = vel;
+        gameObject.GetComponent<Rigidbody2D>().linearVelocity = vel;
     }
 
     void FixedUpdate()
     {
         if (track)
         {
-            GetComponent<Rigidbody2D>().velocity = (player.transform.position - transform.position).normalized * PS;
+            GetComponent<Rigidbody2D>().linearVelocity = (player.transform.position - transform.position).normalized * PS;
         }
     }
 

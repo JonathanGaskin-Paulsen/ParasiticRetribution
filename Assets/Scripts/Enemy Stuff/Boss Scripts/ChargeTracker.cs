@@ -23,11 +23,11 @@ public class ChargeTracker : MonoBehaviour
     {
         if (!locked)
         {
-            GetComponent<Rigidbody2D>().velocity = (player.transform.position - transform.position).normalized * 8;
+            GetComponent<Rigidbody2D>().linearVelocity = (player.transform.position - transform.position).normalized * 8;
         }
         else
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
+            GetComponent<Rigidbody2D>().linearVelocity = new Vector3(0, 0, 0);
         }
     }
 

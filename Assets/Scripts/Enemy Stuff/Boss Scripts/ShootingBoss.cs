@@ -36,7 +36,7 @@ public class ShootingBoss : Enemy
     void FixedUpdate()
     {
         speed = 0;
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0); ;
+        GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0); ;
     }
 
     public override void Update()
@@ -69,7 +69,7 @@ public class ShootingBoss : Enemy
                 cAttackCooldown = 0;
             }
         }
-        movement = GetComponent<Rigidbody2D>().velocity;
+        movement = GetComponent<Rigidbody2D>().linearVelocity;
         if (movement.x < 0)
         {
 

@@ -50,7 +50,7 @@ public class MeleeBoss : Enemy
         {
             agent.speed = speed;
             agent.SetDestination(player.transform.position);
-            movement = GetComponent<Rigidbody2D>().velocity;
+            movement = GetComponent<Rigidbody2D>().linearVelocity;
         }
         movement = transform.position - pos;
 
@@ -152,13 +152,13 @@ public class MeleeBoss : Enemy
                     collision.gameObject.GetComponent<PlayerStats>().TakeDamage(chargeDamage);
                     //collision.gameObject.GetComponent<PlayerMovement>().StunPlayer(2f);
                     cooldown = 0;
-                    GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
-                    movement = GetComponent<Rigidbody2D>().velocity;
+                    GetComponent<Rigidbody2D>().linearVelocity = new Vector3(0, 0, 0);
+                    movement = GetComponent<Rigidbody2D>().linearVelocity;
                 }
                 else if(collision.gameObject.GetComponent<Bullet>() == null && collision.gameObject.GetComponent<Explosion>() == null)
                 {
-                    GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
-                    movement = GetComponent<Rigidbody2D>().velocity;
+                    GetComponent<Rigidbody2D>().linearVelocity = new Vector3(0, 0, 0);
+                    movement = GetComponent<Rigidbody2D>().linearVelocity;
                 }
             }
         }
@@ -189,14 +189,14 @@ public class MeleeBoss : Enemy
         Stop = true;
         Attacking = true;
         charging = true;
-        GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
-        movement = GetComponent<Rigidbody2D>().velocity;
+        GetComponent<Rigidbody2D>().linearVelocity = new Vector3(0, 0, 0);
+        movement = GetComponent<Rigidbody2D>().linearVelocity;
         speed *= 4;
         GameObject projectile = GameObject.Instantiate(locator);
         projectile.transform.position = transform.position;
         yield return new WaitForSeconds(2f); //used to be 5
-        GetComponent<Rigidbody2D>().velocity = (projectile.transform.position - transform.position).normalized * speed;
-        movement = GetComponent<Rigidbody2D>().velocity;
+        GetComponent<Rigidbody2D>().linearVelocity = (projectile.transform.position - transform.position).normalized * speed;
+        movement = GetComponent<Rigidbody2D>().linearVelocity;
         yield return new WaitForSeconds(1f);
         speed /= 4;
         AI = true;
@@ -212,8 +212,8 @@ public class MeleeBoss : Enemy
       //  Debug.Log("Attempting a slam");
         Attacking = true;
         slam = true;
-        GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
-        movement = GetComponent<Rigidbody2D>().velocity;
+        GetComponent<Rigidbody2D>().linearVelocity = new Vector3(0, 0, 0);
+        movement = GetComponent<Rigidbody2D>().linearVelocity;
         float tempSpeed = speed;
         speed = 0;
         GameObject Pound = GameObject.Instantiate(SlamIndicator);
