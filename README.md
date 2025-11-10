@@ -54,3 +54,6 @@ Password: 123456
 This project is for educational and personal use only.  
 Original work credited to the team listed above.  
 No official release or monetization is intended.  
+Please do not submit pull requests or attempt to modify the original project.  
+All rights reserved by the original team.
+
