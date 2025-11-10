@@ -76,7 +76,7 @@ public class PlayerStats : MonoBehaviour
 
     public void removePlayer()
     {
-        DestroyObject(gameObject);
+        Object.Destroy(gameObject);
     }
 
     public void TakePoisonDamage(float d)

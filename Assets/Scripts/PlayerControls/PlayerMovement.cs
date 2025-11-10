@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         dashActiveSpeed = moveSpeed;
+        rigidBodyPlayer.gravityScale = 0;
     }
 
     // Update is called once per frame
@@ -53,18 +54,20 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
-    void ProcessInputs(){
+    void ProcessInputs()
+    {
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
         moveDir = moveInput.normalized;
-       
     }
+
     void Move(){
         if (!Dashing)
         {
             dashActiveSpeed = moveSpeed;
         }
         rigidBodyPlayer.linearVelocity = moveDir * dashActiveSpeed;
+        
     }
     void ProcessDash(){
         float dashM = 1;

@@ -13,7 +13,7 @@ public class NextLevelManager : MonoBehaviour
             instance = this;
         }
         else {
-            DestroyObject(gameObject);
+            Object.Destroy(gameObject);
         }
    }
 

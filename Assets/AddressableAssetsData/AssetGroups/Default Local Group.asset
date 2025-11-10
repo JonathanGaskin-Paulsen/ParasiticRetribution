@@ -13,65 +13,76 @@ MonoBehaviour:
   m_Name: Default Local Group
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
-  m_Data:
-    m_SerializedData: []
   m_GUID: ec9bf0afdd663c84e8982693dd6eb426
   m_SerializeEntries:
-  - m_GUID: 1604351c8b3a33d4cac103451b6d2aac
-    m_Address: Assets/GameObjs/CodexItems/Accelerant.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: f5dcfdaacdc50724eb91114878d8d346
-    m_Address: Assets/GameObjs/CodexItems/Alienade.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: e59359912c52749489def45bb12d4bfc
-    m_Address: Assets/GameObjs/CodexItems/BackFire.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 6cb3b25904ecc3841a0523e7db52734e
-    m_Address: Assets/GameObjs/CodexItems/IceSkates.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 46e3157845eeb0b46b567f22b9dc763e
-    m_Address: Assets/GameObjs/CodexItems/IonSplitter.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 7c9e5bf3606352d49a124f51165d7489
-    m_Address: Assets/GameObjs/CodexItems/HazmatSuit.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 52b5583bf7c263a47b183b940f5fcbeb
-    m_Address: Assets/GameObjs/CodexItems/RocketBullets.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 03bab1c9095179a4f88eebf92dbb91aa
     m_Address: Assets/GameObjs/CodexItems/ElbowGrease.png
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 22f3633a0f25de14fbc36a65865c44ec
-    m_Address: Assets/GameObjs/CodexItems/ExplosiveBullets.png
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1604351c8b3a33d4cac103451b6d2aac
+    m_Address: Assets/GameObjs/CodexItems/Accelerant.png
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 48045966b03c9ff43a1a5ba242227306
-    m_Address: Assets/GameObjs/CodexItems/TrainingWheels.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 26c2cd4ae68186a41a0d8a6066fb9eba
-    m_Address: Assets/GameObjs/CodexItems/Petrifier.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 160a358fc031b6849b5a08bc486b849c
     m_Address: Assets/GameObjs/CodexItems/TrumpCard.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22f3633a0f25de14fbc36a65865c44ec
+    m_Address: Assets/GameObjs/CodexItems/ExplosiveBullets.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23cf601b96c9f314eab6df28d9f99858
     m_Address: Assets/GameObjs/CodexItems/AmmoBelt.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26c2cd4ae68186a41a0d8a6066fb9eba
+    m_Address: Assets/GameObjs/CodexItems/Petrifier.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46e3157845eeb0b46b567f22b9dc763e
+    m_Address: Assets/GameObjs/CodexItems/IonSplitter.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48045966b03c9ff43a1a5ba242227306
+    m_Address: Assets/GameObjs/CodexItems/TrainingWheels.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52b5583bf7c263a47b183b940f5fcbeb
+    m_Address: Assets/GameObjs/CodexItems/RocketBullets.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cb3b25904ecc3841a0523e7db52734e
+    m_Address: Assets/GameObjs/CodexItems/IceSkates.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c9e5bf3606352d49a124f51165d7489
+    m_Address: Assets/GameObjs/CodexItems/HazmatSuit.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e59359912c52749489def45bb12d4bfc
+    m_Address: Assets/GameObjs/CodexItems/BackFire.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5dcfdaacdc50724eb91114878d8d346
+    m_Address: Assets/GameObjs/CodexItems/Alienade.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f02eaea43dc9aa642a4a11d798ae7a20, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 52ef4daf92f9f094b8205fc1c53204a1, type: 2}
     - {fileID: 11400000, guid: 658f0948a34977849b1c528766b9660d, type: 2}
+    - {fileID: 11400000, guid: 52ef4daf92f9f094b8205fc1c53204a1, type: 2}
