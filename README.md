@@ -44,6 +44,7 @@ Password: 123456
 - Running by Juandamb
 - Waldorf Attack Synthetic Drums by altemark
 - Full Reload of a Pistol by EFlexMusic
+    - Full Reload of a Pistol (Mixed) by EvanBoyerman -- https://freesound.org/s/370251/ -- License: Attribution 3.0
   
 
 ## Fonts
