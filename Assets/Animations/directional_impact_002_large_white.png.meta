@@ -1,0 +1,382 @@
+fileFormatVersion: 2
+guid: d303b74322ad7f4499e7c81e7e29c73a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2267994233172878436
+    second: directional_impact_002_large_white_0
+  - first:
+      213: 849574245343754087
+    second: directional_impact_002_large_white_1
+  - first:
+      213: -7982506885517909849
+    second: directional_impact_002_large_white_2
+  - first:
+      213: -3182716375383276763
+    second: directional_impact_002_large_white_3
+  - first:
+      213: -6165424155538652890
+    second: directional_impact_002_large_white_4
+  - first:
+      213: 3016609683187143971
+    second: directional_impact_002_large_white_5
+  - first:
+      213: -2477977721731697106
+    second: directional_impact_002_large_white_6
+  - first:
+      213: 5163887464898570006
+    second: directional_impact_002_large_white_7
+  - first:
+      213: 6403228377817891695
+    second: directional_impact_002_large_white_8
+  - first:
+      213: -3459711385449794442
+    second: directional_impact_002_large_white_9
+  - first:
+      213: 2920797405956263976
+    second: directional_impact_002_large_white_10
+  - first:
+      213: 3000360055432828621
+    second: directional_impact_002_large_white_11
+  - first:
+      213: 2324863396146491405
+    second: directional_impact_002_large_white_12
+  - first:
+      213: 7694659576402208719
+    second: directional_impact_002_large_white_13
+  - first:
+      213: -5937830260747329476
+    second: directional_impact_002_large_white_14
+  - first:
+      213: 8446348902374932758
+    second: directional_impact_002_large_white_15
+  - first:
+      213: 3010259049283661004
+    second: directional_impact_002_large_white_16
+  - first:
+      213: -4127665624427822919
+    second: directional_impact_002_large_white_17
+  - first:
+      213: -4847112522005038117
+    second: directional_impact_002_large_white_18
+  - first:
+      213: -2759070686414462168
+    second: directional_impact_002_large_white_19
+  - first:
+      213: -7139508061098340195
+    second: directional_impact_002_large_white_20
+  - first:
+      213: 7823273907832201058
+    second: directional_impact_002_large_white_21
+  - first:
+      213: -1907658253339965804
+    second: directional_impact_002_large_white_22
+  - first:
+      213: -919715365790387277
+    second: directional_impact_002_large_white_23
+  - first:
+      213: -4248013580843515278
+    second: directional_impact_002_large_white_24
+  - first:
+      213: 7860890397300633471
+    second: directional_impact_002_large_white_25
+  - first:
+      213: -7209118296424551784
+    second: directional_impact_002_large_white_26
+  - first:
+      213: 7123515173356334186
+    second: directional_impact_002_large_white_27
+  - first:
+      213: -6737996194647533495
+    second: directional_impact_002_large_white_28
+  - first:
+      213: 66019926854542411
+    second: directional_impact_002_large_white_29
+  - first:
+      213: 6998686734687950033
+    second: directional_impact_002_large_white_30
+  - first:
+      213: 8437072665347121717
+    second: directional_impact_002_large_white_31
+  - first:
+      213: -2917179488234722740
+    second: directional_impact_002_large_white_32
+  - first:
+      213: 6489445765881986308
+    second: directional_impact_002_large_white_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: directional_impact_002_large_white_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 140
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b9813e2477680e0800000000000000
+      internalID: -2267994233172878436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: directional_impact_002_large_white_1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 140
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 767f800664b4acb00800000000000000
+      internalID: 849574245343754087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: directional_impact_002_large_white_2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 140
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a0689fd740783190800000000000000
+      internalID: -7982506885517909849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: directional_impact_002_large_white_3
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 140
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5230670c158b4d3d0800000000000000
+      internalID: -3182716375383276763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: directional_impact_002_large_white_4
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 140
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62181877563007aa0800000000000000
+      internalID: -6165424155538652890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: directional_impact_002_large_white_5
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 140
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3259f5036862dd920800000000000000
+      internalID: 3016609683187143971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: directional_impact_002_large_white_6
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 140
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e26b9d614647c9dd0800000000000000
+      internalID: -2477977721731697106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 060042939ec6e14488305cb1b23a849a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":140.0,"y":50.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      directional_impact_002_large_white_0: -2267994233172878436
+      directional_impact_002_large_white_1: 849574245343754087
+      directional_impact_002_large_white_2: -7982506885517909849
+      directional_impact_002_large_white_3: -3182716375383276763
+      directional_impact_002_large_white_4: -6165424155538652890
+      directional_impact_002_large_white_5: 3016609683187143971
+      directional_impact_002_large_white_6: -2477977721731697106
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

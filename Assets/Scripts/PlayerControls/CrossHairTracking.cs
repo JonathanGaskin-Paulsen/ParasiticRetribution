@@ -11,7 +11,7 @@ public class CrossHairTracking : MonoBehaviour
     void Awake()
     {
         Cursor.visible = false;
-        Cursor.SetCursor(CursorTexture,Vector2.zero,CursorMode.Auto);
+        //Cursor.SetCursor(CursorTexture,Vector2.zero,CursorMode.Auto);
         //Cursor.lockState = CursorLockMode.Confined;
     }
 

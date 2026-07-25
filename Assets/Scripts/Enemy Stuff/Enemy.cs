@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
 
         if (player == null)
         {
-            player = GameObject.FindObjectOfType<PlayerMovement>();
+            player = FindFirstObjectByType<PlayerMovement>();
         }
 
 

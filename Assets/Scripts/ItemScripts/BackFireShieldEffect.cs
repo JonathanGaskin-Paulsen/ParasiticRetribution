@@ -35,7 +35,7 @@ public class BackFireShieldEffect : MonoBehaviour
     {
         
         yield return new WaitForSeconds(duration);
-        DestroyObject(gameObject);
+        Destroy(gameObject);
 
     }
 

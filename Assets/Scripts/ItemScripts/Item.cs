@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -87,6 +88,15 @@ public abstract class Item
     {
 		return 0;
     }
+
+	public virtual void onUse()
+    {      
+		//Using the item
+    }
+    public virtual void onUse(PlayerStats player)
+    {
+        //Using the item
+    }
 }
 
 public class Accelerant : Item
@@ -108,15 +118,35 @@ public class Accelerant : Item
 public class Alienade : Item
 {
 	public override string name { get { return "Alienade"; } }
-	// Reduces Dash cooldown- gatorade but alien
-	public override void OnPickup()
+    // Heals the player for 25% of their max health when picked up
+    public override void OnPickup()
 	{
-		PlayerStats.instance.health += 0.25f * PlayerStats.instance.maxHealth;
-		if (PlayerStats.instance.health > PlayerStats.instance.maxHealth)
-		{
-			PlayerStats.instance.health = PlayerStats.instance.maxHealth;
-		}
+
 	}
+
+    public override void onUse(PlayerStats player)
+    {
+        foreach (ItemList i in player.items)
+
+        {
+            PlayerStats.instance.health += 0.25f * PlayerStats.instance.maxHealth;
+            if (PlayerStats.instance.health > PlayerStats.instance.maxHealth)
+            {
+                PlayerStats.instance.health = PlayerStats.instance.maxHealth;
+            }
+
+
+            if (i.name == "Alienade")
+            {
+				i.stacks--;
+				if (i.stacks == 0)
+				{
+					player.items.Remove(i);
+				}
+                break;
+            }
+        }
+    }
 }
 
 public class AmmoBelt : Item
@@ -251,7 +281,8 @@ public class TrainingWheels : Item
 	public override void OnPickup()
 	{
 		PlayerStats.instance.InvulnerabilitySeconds += 1.0f;
-	}
+		PlayerStats.instance.DashInvulnerabilityRatio = Mathf.Lerp(PlayerStats.instance.DashInvulnerabilityRatio, 1.0f, 0.35f);
+    }
 }
 
 public class TrumpCard : Item

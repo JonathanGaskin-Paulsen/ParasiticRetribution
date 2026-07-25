@@ -9,7 +9,6 @@ public class MeleeBoss : Enemy
 
     bool Attacking;
     
-    bool slam;
     public float slamCooldown;
     float slamReset = 0;
     public GameObject SlamIndicator;
@@ -137,7 +136,6 @@ public class MeleeBoss : Enemy
 
         if (collision.gameObject.GetComponent<PlayerStats>() != null && cooldown >= attackSpeed && !Attacking)
         {
-            //Debug.Log("Hitting player");
             collision.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
             cooldown = 0;
             chargeReset = 0;
@@ -148,9 +146,7 @@ public class MeleeBoss : Enemy
             {
                 if (collision.gameObject.GetComponent<PlayerStats>() != null)
                 {
-                   // Debug.Log("Charge Hitting player");
                     collision.gameObject.GetComponent<PlayerStats>().TakeDamage(chargeDamage);
-                    //collision.gameObject.GetComponent<PlayerMovement>().StunPlayer(2f);
                     cooldown = 0;
                     GetComponent<Rigidbody2D>().linearVelocity = new Vector3(0, 0, 0);
                     movement = GetComponent<Rigidbody2D>().linearVelocity;
@@ -170,7 +166,6 @@ public class MeleeBoss : Enemy
         {
             chargeReset = .01f;
             cooldown = 0;
-           // Debug.Log("Coninue Hitting player");
             collision.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
 
         }
@@ -184,7 +179,6 @@ public class MeleeBoss : Enemy
 
     IEnumerator Charge()
     {
-       // Debug.Log("Attempting a charge");
         AI = false;
         Stop = true;
         Attacking = true;
@@ -203,27 +197,25 @@ public class MeleeBoss : Enemy
         Stop = false;
         Attacking = false;
         charging = false;
-        //Debug.Log("Dashed");
     }
 
     IEnumerator Slam()
     {
-        Stop = false;
-      //  Debug.Log("Attempting a slam");
+        AI = false;
+        Stop = true;
         Attacking = true;
-        slam = true;
         GetComponent<Rigidbody2D>().linearVelocity = new Vector3(0, 0, 0);
         movement = GetComponent<Rigidbody2D>().linearVelocity;
         float tempSpeed = speed;
         speed = 0;
-        GameObject Pound = GameObject.Instantiate(SlamIndicator);
-        Pound.transform.position = transform.position;
+        GameObject Pound = GameObject.Instantiate(SlamIndicator, transform.position, transform.rotation);
+        Pound.transform.SetParent(transform.parent);
         Pound.GetComponent<Slam>().Damage = chargeDamage * 1.5f;
         yield return new WaitForSeconds(1f);
         speed = tempSpeed;
         Attacking = false;
-        slam = false;
-        //Debug.Log("Dashed");
+        AI = true;
+        Stop = false;
     }
     public override void stun(float t)
     {

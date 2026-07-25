@@ -12,7 +12,7 @@ public class ChargeTracker : MonoBehaviour
     {
         if (player == null)
         {
-            player = GameObject.FindObjectOfType<PlayerMovement>();
+            player = FindFirstObjectByType<PlayerMovement>();
         }
         if (!chaser)
             StartCoroutine(Tracker());

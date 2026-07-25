@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
     public float health = 100;
     public float maxHealth = 100;
     public float InvulnerabilitySeconds;
+    public float DashInvulnerabilityRatio;
     private float tempSeconds;
     public int currentLevel = 0;
     public bool Invincibility = false;
@@ -41,6 +42,15 @@ public class PlayerStats : MonoBehaviour
         foreach (ItemList i in PlayerStats.instance.items)
         {
             i.item.update(PlayerStats.instance, RocketLauncher.instance, PlayerMovement.instance);
+
+            if(i.name == "Alienade")
+            {
+                if(i.stacks > 3)
+                {
+                    i.item.onUse(PlayerStats.instance);
+                }
+            }
+
         }
         if (tempSeconds != 0)
         {
@@ -50,6 +60,7 @@ public class PlayerStats : MonoBehaviour
         {
             tempSeconds = 0;
         }
+        processinput();
     }
 
     public void TakeDamage(float d)
@@ -66,9 +77,30 @@ public class PlayerStats : MonoBehaviour
             StartCoroutine(Invulnerability());
             if (health <= 0)
             {
-                PlayerStats.instance = null;
-                PlayerPrefs.SetInt("score", currentLevel);
-                SceneManager.LoadScene("DeathScreen");
+
+                while (health <= 0)
+                {
+                    bool hasAlienade = false;
+                    for (int i = items.Count - 1; i >= 0; i--)
+                    {
+                        if (items[i].name == "Alienade")
+                        {
+                            items[i].item.onUse(PlayerStats.instance);
+                            hasAlienade = true;
+                        }
+                    }
+                    if (!hasAlienade)
+                    {
+                        break;
+                    }
+                }
+
+                if (health <= 0)
+                {
+                    PlayerStats.instance = null;
+                    PlayerPrefs.SetInt("score", currentLevel);
+                    SceneManager.LoadScene("DeathScreen");
+                }
             }
 
         }
@@ -90,14 +122,48 @@ public class PlayerStats : MonoBehaviour
                 StartCoroutine(Poisoned());
                 if (health <= 0)
                 {
-                    PlayerStats.instance = null;
-                    PlayerPrefs.SetInt("score", currentLevel);
-                    SceneManager.LoadScene("DeathScreen");
+
+                    while (health <= 0)
+                    {
+                        bool hasAlienade = false;
+                        for (int i = items.Count - 1; i >= 0; i--)
+                        {
+                            if (items[i].name == "Alienade")
+                            {
+                                items[i].item.onUse(PlayerStats.instance);
+                                hasAlienade = true;
+                            }
+                        }
+                        if (!hasAlienade)
+                        {
+                            break;
+                        }
+                    }
+
+                    if (health <= 0)
+                    {
+                        PlayerStats.instance = null;
+                        PlayerPrefs.SetInt("score", currentLevel);
+                        SceneManager.LoadScene("DeathScreen");
+                    }
 
                 }
             }
         }
     }
+
+    void processinput()
+    {
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            for(int i = items.Count-1; i >= 0; i--) 
+            {
+                    items[i].item.onUse(PlayerStats.instance);
+            }
+        }
+    }
+
+
 
     IEnumerator Invulnerability()
     {
@@ -124,6 +190,8 @@ public class PlayerStats : MonoBehaviour
         spriteRend.color = Color.white;
 
     }
+
+
 
     IEnumerator Poisoned()
     {

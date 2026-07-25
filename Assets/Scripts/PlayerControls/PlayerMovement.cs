@@ -12,9 +12,9 @@ public class PlayerMovement : MonoBehaviour
 
     /***************** Dash Functionalities **********************/
 
-    public float dashMultiplyer; //How fast the dash occurs
-    public float dashLength = 0.25f; //Distance covered by dash
-    public float dashCD = 1.0f; //Time before you can dash again
+    public float dashMultiplyer; //How much faster the dash is than normal movement
+    public float dashLength; //How long the dash occurs
+    public float dashCD; //Time before you can dash again
 
     
     private float dashCounter; // Where in the dash are we
@@ -22,10 +22,10 @@ public class PlayerMovement : MonoBehaviour
 
     private float dashActiveSpeed; // Internal variable for changing speed
 
-    public bool Dashing;
+    public bool Dashing; // Are we currently dashing?
     /*********************End Dash Functionalities *****************/
-    
-    
+
+
     public static PlayerMovement instance;
 
     
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
     void ProcessDash(){
         float dashM = 1;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && (dashCDCounter + dashCounter <= 0)){
+        if (Input.GetKeyDown(KeyCode.LeftShift) && (dashCDCounter <= 0)){
             AfterImage.instance.enable = true;
             Dashing = true;
             dashActiveSpeed = moveSpeed * dashMultiplyer;
@@ -85,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
             dashCounter = dashLength * dashM;
             playerStats.Armor += 300;
+            playerStats.Invincibility = true;
 
             foreach (ItemList i in PlayerStats.instance.items)
             {
@@ -98,6 +99,10 @@ public class PlayerMovement : MonoBehaviour
         //Input Recieved, begin waiting until cooldowns finished or current dash finishes
         if(dashCounter > 0){
             dashCounter -= Time.deltaTime;
+            if (dashCounter <= (dashLength*dashM)*(1.0 - PlayerStats.instance.DashInvulnerabilityRatio))
+            {
+                playerStats.Invincibility = false;
+            }
             if(dashCounter <= 0){
                 float itemstats = 1;
                 foreach (ItemList i in PlayerStats.instance.items)

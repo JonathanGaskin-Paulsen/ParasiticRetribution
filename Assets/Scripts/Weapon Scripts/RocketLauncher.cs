@@ -18,7 +18,7 @@ public class RocketLauncher : Firearm
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    protected override void FixedUpdate()
     {
         base.FixedUpdate();
         if (cooldown == 0)

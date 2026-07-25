@@ -39,7 +39,7 @@ public class Firearm : MonoBehaviour
     public Animator animations;
 
 
-    protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         float FMul = 1;
         foreach (ItemList i in PlayerStats.instance.items)

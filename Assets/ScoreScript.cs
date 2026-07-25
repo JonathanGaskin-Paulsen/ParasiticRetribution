@@ -10,8 +10,8 @@ public class ScoreScript : MonoBehaviour
     {
         Text text = gameObject.GetComponent<Text>();
         text.text += PlayerPrefs.GetInt("score");
-        PlayerStats stats = FindObjectOfType<PlayerStats>();
-        DestroyObject(stats.gameObject);
+        PlayerStats stats = FindFirstObjectByType<PlayerStats>();
+        Destroy(stats.gameObject);
     
     
     }

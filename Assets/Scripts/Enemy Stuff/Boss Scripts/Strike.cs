@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Strike : MonoBehaviour
 {
-    bool attack = false;
     public float Damage;
     // Start is called before the first frame update
     void Start()
@@ -17,10 +16,11 @@ public class Strike : MonoBehaviour
     {
 
     }
+
+    // Coroutine to handle the strike's lifespan and damage application
     IEnumerator Kill()
     {
         yield return new WaitForSeconds(1f);
-        attack = true;
         Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position, transform.localScale.x / 2);
         for (int i = 0; i < collisions.Length; i++)
         {
@@ -29,7 +29,7 @@ public class Strike : MonoBehaviour
                 collisions[i].gameObject.GetComponent<PlayerStats>().TakeDamage(Damage);
             }
         }
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.26f);
         Destroy(gameObject);
 
     }
