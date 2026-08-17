@@ -15,6 +15,7 @@ public class PlayerStats : MonoBehaviour
     public bool Invincibility = false;
     public float Armor;
     public float HazardResistance;
+    public float salvage;
 
     public List<ItemList> items = new List<ItemList>();
 
