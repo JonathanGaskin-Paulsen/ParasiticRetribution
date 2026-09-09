@@ -12,20 +12,23 @@ public class PlayerMovement : MonoBehaviour
 
     /***************** Dash Functionalities **********************/
 
-    public float dashMultiplyer; //How fast the dash occurs
-    public float dashLength = 0.25f; //Distance covered by dash
-    public float dashCD = 1.0f; //Time before you can dash again
+    public float dashMultiplyer; //How much faster the dash is than normal movement
+    public float dashLength; //How long the dash occurs
+    public float dashCD; //Time before you can dash again
 
     
     private float dashCounter; // Where in the dash are we
-    private float dashCDCounter; // Where in the cooldown are we
+    public float dashCDCounter; // Where in the cooldown are we
+
+    public float dashCooldown; // Public variable for UI to access
 
     private float dashActiveSpeed; // Internal variable for changing speed
 
-    public bool Dashing;
+    public bool Dashing; // Are we currently dashing?
     /*********************End Dash Functionalities *****************/
-    
-    
+
+    public SceneTransition sceneTransition;
+
     public static PlayerMovement instance;
 
     
@@ -45,8 +48,23 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProcessInputs();
-        ProcessDash();
+        if (sceneTransition == null)
+        {
+            sceneTransition = FindFirstObjectByType<SceneTransition>();
+        }
+        else
+        {
+            if (!sceneTransition.isTransitioning)
+            {
+                ProcessInputs();
+                ProcessDash();
+            }
+            else
+            {
+                rigidBodyPlayer.linearVelocity = Vector2.zero;
+                moveDir = Vector2.zero;
+            }
+        }
     }
 
     //Fixed Update is called at a fixed framerate frame independent of device fps
@@ -72,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
     void ProcessDash(){
         float dashM = 1;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && (dashCDCounter + dashCounter <= 0)){
+        if (Input.GetKeyDown(KeyCode.LeftShift) && (dashCDCounter <= 0)){
             AfterImage.instance.enable = true;
             Dashing = true;
             dashActiveSpeed = moveSpeed * dashMultiplyer;
@@ -85,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
             dashCounter = dashLength * dashM;
             playerStats.Armor += 300;
+            playerStats.Invincibility = true;
 
             foreach (ItemList i in PlayerStats.instance.items)
             {
@@ -98,19 +117,24 @@ public class PlayerMovement : MonoBehaviour
         //Input Recieved, begin waiting until cooldowns finished or current dash finishes
         if(dashCounter > 0){
             dashCounter -= Time.deltaTime;
+            if (dashCounter <= (dashLength*dashM)*(1.0 - PlayerStats.instance.DashInvulnerabilityRatio))
+            {
+                playerStats.Invincibility = false;
+            }
             if(dashCounter <= 0){
                 float itemstats = 1;
                 foreach (ItemList i in PlayerStats.instance.items)
                 {
-                   itemstats *= i.item.getDashCD(i.stacks);
+                   itemstats += i.item.getDashCD(i.stacks);
                 }
-                foreach (ItemList i in PlayerStats.instance.items)
-                {
-                    dashM += i.item.getDashLength(i.stacks);
-                }
+
+                itemstats = Mathf.Max(0.1f, itemstats);
+
+
                 AfterImage.instance.enable = false;
                 dashActiveSpeed = moveSpeed;
-                dashCDCounter = ((dashLength * dashM * dashCD * itemstats ));
+                dashCooldown = ( dashCD * itemstats);
+                dashCDCounter = dashCooldown;
                 playerStats.Armor -= 300;
                 AfterImage.instance.lifetime = 0.15f;
                 AfterImage.instance.color = false;

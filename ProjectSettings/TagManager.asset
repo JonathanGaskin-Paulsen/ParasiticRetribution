@@ -2,12 +2,13 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - Enemy
   - Environment
   - Ladder
   - Environment-Intangable
+  - Roof
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Environment
-  - 
+  - Roof
   - 
   - 
   - 
@@ -54,3 +55,8 @@ TagManager:
   - name: Player
     uniqueID: 3753562997
     locked: 0
+  - name: Roof
+    uniqueID: 3718967507
+    locked: 0
+  m_RenderingLayers:
+  - Default

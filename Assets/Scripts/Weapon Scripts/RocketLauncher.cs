@@ -18,10 +18,10 @@ public class RocketLauncher : Firearm
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (cooldown == 0)
+        if (cooldown == 0 && player.GetComponent<PlayerMovement>().sceneTransition != null && !player.GetComponent<PlayerMovement>().sceneTransition.isTransitioning)
         {
             if (Input.GetMouseButton(0) && ammo != 0)
             {

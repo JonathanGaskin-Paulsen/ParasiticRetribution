@@ -1,0 +1,49 @@
+<size=175%><b>Parasitic Retribution 1.01</b></size>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#FF9800><size=130%><b>Changes</b></size></color>
+
+• Items now have benefits to picking them up multiple times.
+
+• Player has a significantly smaller hitbox (Changed from a Square to a Capsule)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#4CAF50><size=130%><b>Buffs</b></size></color>
+
+<b>Dash</b>
+
+• The player is now invincible during the Dash Animation
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+This change was done to encourage the use of the dash and give the player a survivability option.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#BD2000><size=130%><b>Nerfs</b></size></color>
+
+<b>Accelerant</b>
+
+• Added effect: Increases Dash Cooldown linearly by 3 seconds for each new pickup of Accelerant.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+This change was done to balance the item with the added Invincibility to Dashes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#0003BD><b>Fixes</b></color>
+
+• Fixed an issue where the Health Bar did not match the Indicator.
+
+• Fixed the HurtBox on the Acid Puddles. They should more accurately reflect their in-game size.
+
+• Fixed an issue where explosive bullets did not explode on termination with terrain. This was an intended function.
+
+• Fixed an issue where the AmmoBelt item could not spawn and would crash the game upon pickup.
+
+• Fixed an issue where the BackFire Upgrade would shoot only towards the world origin. It now properly shoots behind the player.
+
+• Fixed an issue where the mouse would not reappear when loading the game over screen.

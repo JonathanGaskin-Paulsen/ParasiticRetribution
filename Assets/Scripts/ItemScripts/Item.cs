@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -20,7 +21,12 @@ public abstract class Item
 	{
 	 //Dealing damage
 	}
-	public virtual void OnDamage(int stacks)
+	public virtual void OnHit(int stacks, Enemy enemy)
+    {
+        //Dealing damage
+    }
+
+    public virtual void OnDamage(int stacks, ref float damage)
 	{
 	 //Taking damage
 	}
@@ -44,7 +50,13 @@ public abstract class Item
 	{
 		//Firing gun
 	}
-	public virtual void OnRoomEnter(int stacks, Enemy[] enemies)
+
+	public virtual void onTermination(int stacks, Bullet bullet)
+	{
+
+	}
+
+    public virtual void OnRoomEnter(int stacks, Enemy[] enemies)
 	{
 
     }
@@ -87,6 +99,23 @@ public abstract class Item
     {
 		return 0;
     }
+
+	public virtual void onUse()
+    {      
+		//Using the item
+    }
+    public virtual void onUse(PlayerStats player)
+    {
+        //Using the item
+    }
+	public virtual void OnBulletUpdate(Rigidbody2D rigidbody, Vector3 target, int stacks)
+	{
+
+	}
+	public virtual void OnBulletUpdate(int stacks, Bullet bullet)
+    {
+
+    }
 }
 
 public class Accelerant : Item
@@ -97,7 +126,7 @@ public class Accelerant : Item
 
     public override float getDashCD(int stacks)
     {
-		return Mathf.Pow(0.95f,stacks);
+		return 0.5f * (float)stacks;
     }
     public override float getDashLength(int stacks)
     {
@@ -108,21 +137,41 @@ public class Accelerant : Item
 public class Alienade : Item
 {
 	public override string name { get { return "Alienade"; } }
-	// Reduces Dash cooldown- gatorade but alien
-	public override void OnPickup()
+    // Heals the player for 25% of their max health when picked up
+    public override void OnPickup()
 	{
-		PlayerStats.instance.health += 0.25f * PlayerStats.instance.maxHealth;
-		if (PlayerStats.instance.health > PlayerStats.instance.maxHealth)
-		{
-			PlayerStats.instance.health = PlayerStats.instance.maxHealth;
-		}
+
 	}
+
+    public override void onUse(PlayerStats player)
+    {
+        foreach (ItemList i in player.items)
+
+        {
+            PlayerStats.instance.health += 0.25f * PlayerStats.instance.maxHealth;
+            if (PlayerStats.instance.health > PlayerStats.instance.maxHealth)
+            {
+                PlayerStats.instance.health = PlayerStats.instance.maxHealth;
+            }
+
+
+            if (i.name == "Alienade")
+            {
+				i.stacks--;
+				if (i.stacks == 0)
+				{
+					player.items.Remove(i);
+				}
+                break;
+            }
+        }
+    }
 }
 
 public class AmmoBelt : Item
 {
 	public override string name { get { return "AmmoBelt"; } }
-	//This item doubles the magazine capacity of the player's currently equipped weapon and Decreases reload speed.
+	//This item doubles the magazine capacity of the player's currently equipped weapon and Increases reload speed.
 
     public override float AmmoChange(int stacks)
     {
@@ -158,12 +207,12 @@ public class ExplosiveBullets : Item
 {
 	public override string name { get { return "ExplosiveBullets"; } }
     //Makes your bullets explode
-    public override void OnHit(int stacks, GameObject gameobject)
+    public override void onTermination(int stacks, Bullet bullet)
 	{
 		GameObject explosion = GameObject.Instantiate(Resources.Load("Explosion", typeof(GameObject))) as GameObject;
 		explosion.transform.localScale = new Vector3(1f+(.1f*(float)stacks), 1f + (.1f * (float)stacks), 1f + (.1f * (float)stacks));
-		explosion.transform.position = gameobject.transform.position;
-		explosion.GetComponent<Explosion>().damage = gameobject.GetComponent<Bullet>().damage * (.1f*(float)stacks);
+		explosion.transform.position = bullet.transform.position;
+		explosion.GetComponent<Explosion>().damage = bullet.GetComponent<Bullet>().damage * (.05f*(float)stacks);
 	}
 
 }
@@ -174,8 +223,8 @@ public class HazmatSuit : Item
 	// Poison Immunity and health up
 	public override void OnPickup()
 	{
-		PlayerStats.instance.Armor += 5;
-		PlayerStats.instance.HazardResistance += 15;
+		PlayerStats.instance.Armor += 10;
+		PlayerStats.instance.HazardResistance += 10;
 	}
 }
 
@@ -183,13 +232,9 @@ public class IceSkates : Item
 {
 	public override string name { get { return "IceSkates"; } }
 	//Increases base movement speed(not dash)
-	public override void OnPickup()
-	{
-		PlayerMovement.instance.moveSpeed += 2f;
-	}
 	public override float getDashCD(int stacks)
 	{
-		return Mathf.Pow(.67f, stacks);
+		return -0.20f * stacks;
 	}
 	public override void OnDashContact(int stacks, GameObject gameobject)
     {
@@ -203,11 +248,17 @@ public class IonSplitter : Item
 	//Increases the number of bullets that come out of the gun (i.e like a shotgun)
     public override void OnFire(int stacks, Vector3 mousePosition)
     {
-       for(int i = 0; i < stacks * 2; i++)
+		Pointer pointer = GameObject.FindAnyObjectByType<Pointer>();
+        Vector3 direction = pointer.transform.position - mousePosition;
+        direction.Normalize();
+
+        for (int i = 0; i < stacks * 2; i++)
         {
-			Vector3 spreadTrans = Random.insideUnitCircle * (float)(.5f * (float)stacks);
-			spreadTrans += mousePosition;
-			RocketLauncher.instance.CreateBullet(spreadTrans, 0.5f * RocketLauncher.instance.bulletSize, RocketLauncher.instance.damage * 0.05f, RocketLauncher.instance.projectileSpeed);
+			Vector3 spreadTrans = Random.insideUnitCircle * (float)(1.0f * (float)stacks);
+
+			Vector3 spawnLoc = pointer.transform.position - direction * (5.0f * (float)stacks) + spreadTrans;
+
+			RocketLauncher.instance.CreateBullet(spawnLoc, 0.5f * RocketLauncher.instance.bulletSize, RocketLauncher.instance.damage * 0.05f, RocketLauncher.instance.projectileSpeed);
 		}
     }
 }
@@ -216,32 +267,40 @@ public class Petrifier : Item
 {
 	public override string name { get { return "Petrifier"; } }
 	// When you enter a room, chance to freeze enemies for some amount of time.
-	public override void OnRoomEnter(int stacks, Enemy[] enemies)
+	public override void OnHit(int stacks, Enemy enemy)
     {
-		if (enemies.Length > 1)
-		{
-			foreach (Enemy e in enemies)
-			{
-				if (Random.Range(0, 10) == 8)
-				{
-					e.gameObject.GetComponent<Enemy>().stun(5f + (2 * (float)stacks-1));
-				}
-
-			}
-
-		}
-	}
+		enemy.Poison();
+		enemy.poisonDamage = 2.0f * (float)stacks;
+    }
 }
 
 public class RocketBullets : Item
 {
 	public override string name { get { return "RocketBullets"; } }
 	//Makes your bullets fly faster and do more damage
-	public override void OnPickup()
-	{
-		RocketLauncher.instance.projectileSpeed += 5.0f;
+    public override void OnBulletUpdate(Rigidbody2D rigidbody, Vector3 target, int stacks)
+    {
+		if (target != null)
+		{
+			Vector2 tarDir = ((Vector2)target - rigidbody.position).normalized;
+			Vector2 curDir = rigidbody.linearVelocity.normalized;
 
-	}
+			float speed = rigidbody.linearVelocity.magnitude;
+
+			Vector2 newDir = Vector2.Lerp(curDir, tarDir, 0.01f * (float)stacks).normalized;
+
+			rigidbody.linearVelocity = newDir * speed;
+
+        }
+
+		
+
+    }
+
+    public override void OnBulletUpdate(int stacks, Bullet bullet)
+    {
+        bullet.damage += bullet.ogDamage * ((float)0.005f * (float)stacks);
+    }
 }
 
 public class TrainingWheels : Item
@@ -251,7 +310,8 @@ public class TrainingWheels : Item
 	public override void OnPickup()
 	{
 		PlayerStats.instance.InvulnerabilitySeconds += 1.0f;
-	}
+		PlayerStats.instance.DashInvulnerabilityRatio = Mathf.Lerp(PlayerStats.instance.DashInvulnerabilityRatio, 1.0f, 0.15f);
+    }
 }
 
 public class TrumpCard : Item
@@ -260,36 +320,48 @@ public class TrumpCard : Item
     //The last bullet fired does a lot more damage, is a lot bigger, and flies slower.
     public override void OnHit(int stacks, GameObject gameobject)
     {
-        
-		if (Random.value < stacks/52f)
+		do
 		{
-			gameobject.GetComponent<Bullet>().damage *= 2;
-		}
+			if (Random.value < stacks / 13f)
+			{
+				gameobject.GetComponent<Bullet>().damage *= 1.5f;
+			}
+			stacks = stacks - 13;
+		} while (stacks > 0);
 		
     }
 }
 
 public class BackFire : Item
 {
-	float cooldown = 0;
+	public float cooldown = 0;
+	public float healingcooldown = 0;
 	public override string name { get { return "BackFire"; } }
     //Makes a bullet appear behind the player opposite in direction when the player shoots
     public override void update(PlayerStats player, Firearm firearm, PlayerMovement mobil)
     {
 		cooldown -= Time.deltaTime;
+		healingcooldown -= Time.deltaTime;
+		if (healingcooldown < 0 && cooldown >= 0)
+		{
+			player.health += 0.01f * player.maxHealth;
+			if(player.health > player.maxHealth)
+            {
+                player.health = player.maxHealth;
+            }	
+
+
+            healingcooldown = 1.0f;
+        }
     }
-    public override void OnDamage(int stacks)
+    public override void OnDamage(int stacks, ref float damage)
     {
         if(cooldown <= 0)
         {
-			GameObject AOE = GameObject.Instantiate(Resources.Load("PS", typeof(GameObject))) as GameObject;
-			var dr = AOE.GetComponent<ParticleSystem>().main;
-			dr.duration = 3*stacks;
-			AOE.GetComponent<BackFireShieldEffect>().duration = 5 + 3 * stacks;
-			AOE.GetComponent<CircleCollider2D>().radius += 0.1f * stacks;
-			var sh = AOE.GetComponent<ParticleSystem>().shape;
-			sh.radius += 0.1f * stacks;
-			cooldown = 5 + 3 * stacks + 10;
+			damage = damage * Mathf.Pow(0.85f, stacks);
+
+
+			cooldown = 15;
 		}
     }
 }

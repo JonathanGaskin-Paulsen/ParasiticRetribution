@@ -26,8 +26,7 @@ public class NextLevelManager : MonoBehaviour
         
         
 
-    
-        SceneManager.LoadScene("LabFloorGenerate");
+        gameObject.GetComponent<PlayerMovement>().sceneTransition.moveScene("LabFloorGenerate", 0.5f);
    }
 
     

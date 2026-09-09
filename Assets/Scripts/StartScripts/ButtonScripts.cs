@@ -47,4 +47,29 @@ public class ButtonScripts : MonoBehaviour
     {
         SceneManager.LoadScene("Options");
     }
+
+    public void onPatchNotesButton()
+    {
+        SceneManager.LoadScene("PatchNotesHub");
+    }
+    public void onPatchNotes1()
+    {
+        SceneManager.LoadScene("Patch1");
+    }
+    public void onPatchNotes2()
+    {
+        SceneManager.LoadScene("Patch2");
+    }
+    public void onPatchNotes3()
+    {
+        SceneManager.LoadScene("Patch3");
+    }
+    public void onPatchNotes4()
+    {
+        SceneManager.LoadScene("Patch4");
+    }
+    public void onPatchNotes5()
+    {
+        SceneManager.LoadScene("Patch5");
+    }
 }

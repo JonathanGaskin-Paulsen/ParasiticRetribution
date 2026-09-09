@@ -5,7 +5,6 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public float damage;
-    private float despawn = 0.75f;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +26,7 @@ public class Explosion : MonoBehaviour
                 collisions[i].gameObject.GetComponent<Enemy>().takeDamage(damage);
             }
         }
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.25f);
         Destroy(gameObject);
 
     }

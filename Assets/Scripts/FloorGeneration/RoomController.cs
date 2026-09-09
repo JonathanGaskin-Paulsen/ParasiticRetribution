@@ -75,7 +75,7 @@ public class RoomController : MonoBehaviour
     }    
     void Start()
     {
-        Player = FindObjectOfType<PlayerStats>();
+        Player = FindFirstObjectByType<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -101,6 +101,16 @@ public class RoomController : MonoBehaviour
 
     }
     public void onRoomEnter(Room room){
+        //Remove map blocker
+        foreach(Transform child in room.transform)
+        {
+            if (child.CompareTag("Roof"))
+            {
+                child.gameObject.SetActive(false);
+                break;
+            }
+        }
+
         //Update Camera
         DungeonCamera.instance.currRoom = room;
         currentRoom = room;

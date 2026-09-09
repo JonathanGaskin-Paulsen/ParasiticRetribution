@@ -1,0 +1,39 @@
+<size=175%><b>Parasitic Retribution 1.2.1</b></size>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#FF9800><size=130%><b>Item Changes</b></size></color>
+
+<b>Alienade Change</b>
+
+• No longer provides +5 max health on pickup
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+The game can possibly be challenging now
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#FF9800><size=130%><b>Addendum</b></size></color>
+
+Small addon from future me:
+
+I didn't record it, but apparently rocket bullets got gutted sometime between the previous patch, so I guess I'll document those changes here.
+
+No developer commentary on this as I cannot tell you what compelled me to make this design choice.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Rocket Bullet changes</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Increased Bullet size by 1.0 unit.
+
+• Increased damage by 1.0.
+
+• Increased Projectile Speed by 1.0 units. Base projectile speed is 20.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• Increased Projectile Speed by 5.0 unit. Base Projectile speed is 20.
