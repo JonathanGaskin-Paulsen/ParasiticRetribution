@@ -41,9 +41,10 @@ public class ShootingBoss : Enemy
 
     public override void Update()
     {
+        base.Update();
         if (AI && !ChargeAttack)
         {
-            base.Update();
+            
             fAttackCooldown += Time.deltaTime;
             cAttackCooldown += Time.deltaTime;
             bAttackCooldown += Time.deltaTime;
@@ -99,32 +100,49 @@ public class ShootingBoss : Enemy
 
     public override void takeDamage(float d)
     {
-        StartCoroutine(Hit());
-        if (vulnerable)
-        {
-            health -= (d * 1.5f);
-            EnemyAnimator.SetBool("idle", true);
+        if (AI) { 
+            StartCoroutine(Hit());
+            if (vulnerable)
+            {
+                health -= (d * 1.5f);
+                EnemyAnimator.SetBool("idle", true);
+            }
+            else
+            {
+                health -= (d * 0.5f);
+                EnemyAnimator.SetBool("idle", false);
+            }
+
+
+
+            if (health <= 0)
+            {
+                onDeath();
+
+            }
         }
-        else
-        {
-            health -= (d * 0.5f);
-            EnemyAnimator.SetBool("idle", false);
-        }
+    }
 
+    public override void scaleStats(int level)
+    {
+        health += level * level * (health * 0.3f);
+        maxHealth = health;
+        damage = damage + level * (damage * 0.1f);
+    }
 
+    public override void onDeath()
+    {
+        Rotator.GetComponent<Tracker>().Destroytracker();
+        AudioSource.PlayClipAtPoint(deathAudio.clip, DungeonCamera.instance.gameObject.transform.position, 1.0f);
+        RoomController.instance.checkAfterKill();
 
-        if (health <= 0)
-        {
-            Rotator.GetComponent<Tracker>().Destroytracker();
-            AudioSource.PlayClipAtPoint(deathAudio.clip, DungeonCamera.instance.gameObject.transform.position, 1.0f);
-            RoomController.instance.checkAfterKill();
-            
-            LadderScript ladder = FindObjectsOfType<LadderScript>(true)[0];
-            ladder.gameObject.SetActive(true);
+        PlayerStats stats = FindFirstObjectByType<PlayerStats>();
+        stats.salvage += salvageDropAmount;
 
-            Destroy(gameObject);
-            
-        }
+        LadderScript ladder = FindObjectsOfType<LadderScript>(true)[0];
+        ladder.gameObject.SetActive(true);
+
+        Destroy(gameObject);
     }
 
     void shoot()

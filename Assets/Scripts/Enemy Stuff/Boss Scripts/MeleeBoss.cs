@@ -116,19 +116,22 @@ public class MeleeBoss : Enemy
         }
     }
 
-    public override void takeDamage(float d){
-    
-         StartCoroutine(Hit());
-            health -= d;
-            if (health <= 0)
-            {
-                
-                AudioSource.PlayClipAtPoint(deathAudio.clip, DungeonCamera.instance.gameObject.transform.position, 1.0f);
-                RoomController.instance.checkAfterKill();
-                LadderScript ladder = FindObjectsOfType<LadderScript>(true)[0];
-                ladder.gameObject.SetActive(true);
-                Destroy(gameObject);
-            }
+    public override void scaleStats(int level)
+    {
+        health += level * level * (health * 0.3f);
+        maxHealth = health;
+        damage = damage + level * (damage * 0.1f);
+    }
+
+    public override void onDeath()
+    {
+        PlayerStats stats = FindFirstObjectByType<PlayerStats>();
+        stats.salvage += salvageDropAmount;
+        AudioSource.PlayClipAtPoint(deathAudio.clip, DungeonCamera.instance.gameObject.transform.position, 1.0f);
+        RoomController.instance.checkAfterKill();
+        LadderScript ladder = FindObjectsOfType<LadderScript>(true)[0];
+        ladder.gameObject.SetActive(true);
+        Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

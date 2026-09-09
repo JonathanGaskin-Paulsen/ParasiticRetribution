@@ -21,7 +21,7 @@ public class RocketLauncher : Firearm
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (cooldown == 0)
+        if (cooldown == 0 && player.GetComponent<PlayerMovement>().sceneTransition != null && !player.GetComponent<PlayerMovement>().sceneTransition.isTransitioning)
         {
             if (Input.GetMouseButton(0) && ammo != 0)
             {

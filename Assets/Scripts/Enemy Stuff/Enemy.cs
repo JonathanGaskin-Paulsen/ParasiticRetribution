@@ -8,16 +8,23 @@ public class Enemy : MonoBehaviour
 {
     public Vector3 pos;
     public float health;
+    public float maxHealth;
     public float damage;
     public float speed;
     public float attackSpeed;
+    public int salvageDropAmount;
     public Vector3 movement;
     public Animator EnemyAnimator;
     protected float cooldown;
     public PlayerMovement player;
     public bool AI = true;
     public bool stunned;
+    public bool dead = false;
+    public float poisonTimer;
 
+    public float poisonCooldown;
+
+    public float poisonDamage;
     protected NavMeshAgent agent;
 
     public AudioSource deathAudio;
@@ -43,7 +50,7 @@ public class Enemy : MonoBehaviour
             player = FindFirstObjectByType<PlayerMovement>();
         }
 
-
+        scaleStats(player.GetComponents<PlayerStats>()[0].currentLevel);
     }
 
 
@@ -52,8 +59,30 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        cooldown += Time.deltaTime;
+        if (AI)
+        {
+            cooldown += Time.deltaTime;
+        }
+        poisonCooldown += Time.deltaTime;
 
+        if (poisonTimer > 0)
+        {
+            poisonTimer-= Time.deltaTime;
+
+            if (poisonCooldown >= 1f)
+            {
+                takePoisonDamage(poisonDamage);
+                poisonCooldown = 0;
+            }
+        }
+
+    }
+
+    public virtual void scaleStats(int level)
+    {
+        health += level * level * (health * 0.2f);
+        maxHealth = health;
+        damage = damage +  level * (damage * 0.1f);
     }
 
     public virtual void takeDamage(float d)
@@ -64,19 +93,50 @@ public class Enemy : MonoBehaviour
             health -= d;
             if (health <= 0)
             {
-                int rand = Random.Range(0, 9);
-                Debug.Log(rand);
-                if (rand == 8)
-                {
-                    GameObject explosion = GameObject.Instantiate(Resources.Load("Alienade", typeof(GameObject))) as GameObject;
-                    explosion.transform.position = gameObject.transform.position;
-                }
-                AudioSource.PlayClipAtPoint(deathAudio.clip, DungeonCamera.instance.gameObject.transform.position, 1.0f);
-                RoomController.instance.checkAfterKill();
-                Destroy(gameObject);
+                onDeath();
             }
         }
     }
+
+    public virtual void takePoisonDamage(float d)
+    {
+        if(AI || GetComponent<SpriteRenderer>().color == Color.grey || stunned)
+        {
+            StartCoroutine(Poisoned());
+            health -= d;
+            if (health <= 0)
+            {
+                onDeath();
+            }
+        }
+    }
+    public virtual void onDeath()
+    {
+        if (!dead) { 
+            dead = true;
+            int rand = Random.Range(0, 9);
+            if (rand == 8)
+            {
+                GameObject healthDrop = GameObject.Instantiate(Resources.Load("Alienade", typeof(GameObject))) as GameObject;
+                healthDrop.transform.position = gameObject.transform.position;
+            }
+            PlayerStats stats = FindFirstObjectByType<PlayerStats>();
+            stats.salvage += salvageDropAmount;
+            AudioSource.PlayClipAtPoint(deathAudio.clip, DungeonCamera.instance.gameObject.transform.position, 1.0f);
+            RoomController.instance.checkAfterKill();
+            Destroy(gameObject);
+        }
+    }
+
+    public virtual void Poison()
+    {
+        poisonTimer += 3.0f;
+        if (poisonTimer > 5)
+        {
+            poisonTimer = 5f;
+        }
+    }
+
 
     public virtual void stun(float t)
     {
@@ -105,6 +165,20 @@ public class Enemy : MonoBehaviour
     {
 
         GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(.15f);
+        if (stunned)
+        {
+            GetComponent<SpriteRenderer>().color = Color.cyan;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
+
+    protected IEnumerator Poisoned()
+    {
+        GetComponent<SpriteRenderer>().color = Color.green;
         yield return new WaitForSeconds(.15f);
         if (stunned)
         {

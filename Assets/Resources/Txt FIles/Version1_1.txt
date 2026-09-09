@@ -1,0 +1,305 @@
+<size=175%><b>Parasitic Retribution 1.02</b></size>
+
+<size=130%><b>The Item Rebalance Patch Notes</b></size>
+
+This update focused on balancing the items to be in-line with the current gameplay loop as they were previously balanced along The original premise of the game was that there were only going to be 2 stages. This lead to many items residing on one of the two sides of a bell curve in strength, with some being extremely powerful (I'm looking at you ion splitter) and some feeling extremely underwhelming (I am also looking at you ice skates) and not having a unique identity to them. Many items had very similar changes, such as arbitrarily adding damage when it didn't feel necessary. Given how the game is now, the following changes have been made, with the changes between the old and new versions being shown below:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#FF9800><size=130%><b>Item Changes</b></size></color>
+
+<b>Ammo Belt</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Increased Magazine size by 5 linearly
+
+• Decreased fire rate cooldown (The rate at which the weapon can be fired) by 0.1 seconds. The base fire rate cooldown is 0.4 seconds.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• Increases Magazine size by 6 linearly
+
+• Increases reload time by 0.25 seconds. The base reload speed is 1.0 seconds.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+This was done to make it feel more in line with the name of the item and how it would behave per say. It also gives it the unique identity of the ammo increasing item.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Alienade</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Decreased dash cooldown by 0.3 seconds. The base dash cooldown is 0.75 seconds
+
+• Increased player movement speed by 1 unit. Base movement speed is 8.
+
+• Restored 25 health on pickup, not overflowing the player's max health.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• Restores 25% of the players max health on pickup, not overflowing the players max health.
+
+• Increases the player's max health by 20% of the players base health. Players base health is 50.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+This was done to make Alienade the health item rather than a jack of all trades item.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Backfire</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• On first pickup, enable the backfire feature.
+
+• Increase bullet radius by 1 unit. Base is 2 units.
+
+• Increase gun damage by 1. Base Damage is 10.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• On first pickup, enable the backfire feature.
+
+• Increase gun damage by 1. Base Damage is 10.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+With the current coding behind the item system, the idea for backfire could not be implemented in a desired form. Backfire will have a greater change with a later update to the item and stat system down the line.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Elbow Grease</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Decreased reload Time by 50%.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• Decreased reload time by 25%.
+
+• Decreased fire rate cooldown by 25%.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+This was done to make this the item meant to speed things up on the weapon side of things. The original effect was kept in, but the potency was slightly reined in to keep it from being too powerful.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Explosive Bullets</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• On first pickup, enable explosive bullets trait.
+
+• Increase bullet radius by 1 unit.
+
+• Set the explosion radius to 52.5% of the main bullet's radius.
+
+• Increase bullet damage by 5. Base Damage is 10.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• On first pickup, enable explosive bullets trait.
+
+• Set the explosion radius to 52.5% of the main bullet's radius. This will update with other items.
+
+• Increase explosion's percentile damage by 10%.
+
+• The damage of the explosion is a percent of the bullets total damage. For example, if the bullet does 10 damage and the percentile is 20%, then the explosion will do 2 damage.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+This is both a bug fix and a change as previously, the percentile was never updated from the base value of 0, therefore the explosions would do 0% of the weapons base damage, or 0 damage. This reverts that problem and still provides a damage increase as the explosions can become very powerful very quickly if used in tandem with other items. They are also balanced in the fact that they do apply self damage as well, which can become problematic in the tight corridors of some rooms. This item may be subject to change in the future.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Hazmat Suit</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Upon first pickup, the player permanently became immune to poison damage.
+
+• The player's health was fully restored.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• The player is given 15 hazard resistance.
+
+• The player is given 5 armor.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+Poison Immunity is being removed as it made Hazmat suit one of the most powerful items in the game. Combined with the lack of ways to restore health, grabbing this early on would trivialize the game very quickly. To keep the item with the idea of being a defensive item, the immunity was replaced with a stacking resistance and armor stat on the player. The formula used for calculating damage now is: Damage taken * 100/(100 + armor), and the same for hazard resistance. This way it provides a similar benefit while not making it too powerful.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Ice Skates</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Increased movement speed by 3 units. Base Movement speed is 8 units.
+
+<color=#4CAF50><b>New Behaviors</b></color>
+
+• Upon hitting a non-boss type enemy, the player will freeze them, stunning for 0.5 seconds. Adds + 0.5 seconds per pickup.
+
+• While Stunned, Enemies will be a cyan color and unable to move or attack
+
+• Increased movement speed by 3 units. Base Movement speed is 8 units.
+
+• Decreased dash cooldown by 33.3% Percent. The base dash cooldown is 0.75 seconds
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+The Ice Skates in their previous iteration did not feel as if they had a potent enough effect to be worth grabbing, nor did they fill any specific role. They now serve as the movement item in the game and have new functionality to fit the "Ice" Part of their name.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Ion Splitter</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Increases Player's multishot by 2.
+
+• Increases Player's spread by 15 degree's (?)
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• Increases Player's multishot by 2.
+
+• Increases Player's spread by 0.5 units.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+This change is accompanied by a overarching change to the multishot stat and the spread stat. Before the player would have 1 multishot stat base, with multishot dictating how many shots the player fired at once. Now, at base, multishot starts at 0. Multishot now dictates how many extra shots the gun shoots per trigger pull. Furthermore. Each bullet from a multishot proc is 50% smaller and deals 25% of the original damage, with this effect applying to modifiers such as trump card and backfire as well.
+
+Simultaneously, the "Spread" system has been changed to be more consistent as well and easier to modify. In its previous iteration, the theoretical form of spread was an angle which would make an increasing cone of inaccuracy around the original shot. However, in practice, there were many odd occurrences that would occur, causing the cone to only apply in certain locations, such above, below, or behind the original shot depending on the cursor's location. In its new form, when accounting for spread, a random point is selected from inside a circle based at the cursor's location when a shot is fired, creating the same cone shape as before. With this in mind, the spread stat now increases the radius of that circle, increasing the range of possible points from which the game can attempt to shoot at.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Petrifier</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• When obtained, until the player left the current floor, all non-boss enemies have a 25% chance to be petrified upon entering a room.
+
+• Petrified enemies are unable to move/attack and have one health
+
+• Increase movement speed by 2.0 units.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• When obtained, all non-boss enemies have a 10% chance to be petrified upon entering a room.
+
+• Petrified enemies are unable to move/attack and have one health
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+With similar reasoning to Backfire, the Petrifier remains mostly unchanged in behavior. The effect was toned down slightly and a bug was fixed as was intended to carry over to the next floor.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Rocket Bullets</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Increased Bullet size by 1.0 unit.
+
+• Increased damage by 1.0.
+
+• Increased Projectile Speed by 0.25 units. Base projectile speed is 20.
+
+• Projectile speed could not exceed 20 units.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• Increased Bullet size by 1.0 unit.
+
+• Increased damage by 1.0.
+
+• Increased Projectile Speed by 1.0 units. Base projectile speed is 20.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+Rocket bullets felt like the golden standard of the design philosophy of the items and has remain untouched for the most part in functionality. However, it should be a little more impactful now that this limiter is removed, but I will also watch this space.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Training Wheels</b>
+
+<color=#4CAF50><b>Current Behavior</b></color>
+
+• Increases Invincibility time after getting hit by 0.5 seconds. Base time is 1 second.
+
+• Maxes out players health.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+Similarly to Rocket bullets, Training Wheels fills the roll of its name, therefore it will remain unchanged for the moment.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Trump Card</b>
+
+<color=#BD2000><b>Old Behavior</b></color>
+
+• On pickup, the trump card effect is enabled. On the final shot of the magazine, the following changes are applied:
+
+•     Bullet size and damage are increased by 4x.
+
+•     Projectile Speed is reduced by 3x.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• On pickup, the trump card effect is enabled. On the final shot of the magazine, the following changes are applied:
+
+•     Bullet size and damage are increased by 4x.
+
+•     Projectile Speed is reduced by 3x.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+Same reason as backfire.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#FF9800><size=130%><b>Gameplay Changes</b></size></color>
+
+• Upon killing all enemies in a room, the player is healed for 10% of their max health.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+This was done to incentivize the player to do the enemy rooms while simultaneously giving the player more longevity
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#BD2000><size=130%><b>Nerfs</b></size></color>
+
+• Weapon base fire rate reduced to 1 bullet per second from 0.4.
+
+• Weapon base ammo capacity reduced from 10 to 6.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#0003BD><size=130%><b>Fixes</b></size></color>
+
+• Fixed an "issue" where the escape key would close the game.
+
+• Fixed an issue where the explosions did not damage enemies. They now damage both players and enemies properly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#BA68C8><size=130%><b>Next Things being Worked on</b></size></color>
+
+• More menu buttons
+
+• A tutorial/Some way to explain the controls
+
+• A pause Menu
+
+• Reworking the Item code itself to add more unique item effects.

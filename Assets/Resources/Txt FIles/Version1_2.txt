@@ -1,0 +1,331 @@
+<size=175%><b>Parasitic Retribution 1.2</b></size>
+
+<size=130%><b>The Item Rebalance Part 2</b></size>
+
+This update was the result of many "under the hood" changes to the game's code, more specifically, the Item system. Functionally, the items work almost identically to how they did before in terms of how they are obtained and what they do, but I now have more creative freedom on what I can do with them. With that being said, items now differentiate between the base stats of the player and modifications to the base stats. Here is an example:
+
+• The base movement speed of the player is 8 units.
+
+• The New Dash Functionality doubles the player's speed during the dash, being a value derived from the base value.
+
+• Ice Skates increases the players base movement speed by 2 units per item. Therefore, the dash would now use the new modified base stats value of 10 rather than 8 when calculating the dash speed
+
+I hope this makes sense, and each item will make it clear which way it has modified the value. Outside of this, there have been a few changes to some mechanics of the game, all of which are detailed below.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#FF9800><size=130%><b>Gameplay Changes</b></size></color>
+
+<b>Dash</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• During Dash, player becomes intangible.
+
+• Dash length base amount was .1 seconds.
+
+• Dash Cooldown at base was .75 seconds
+
+• Base dash speed was 40, set to 20 with Accelerant.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• During Dash, player is given 300 Armor. This roughly equals 75% damage reduction if the player has 0 armor.
+
+• Base dash duration is now .3 seconds.
+
+• Dash Cooldown is now equal to 5x the modified dash duration. This means that the base dash cooldown is now 1.5 seconds.
+
+• Dash speed is now set to twice the players base speed. Since the player's base speed is 8, the base dash speed is now 16.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Healing changes</b>
+
+• Removed the healing from room clears as this has been repurposed to Alienade.
+
+•      This may be repurposed into an item
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Room Changes</b>
+
+• Some of the terrain in rooms have been changed to allow shots to travel over terrain
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+You all know which room caused this is.
+You all equally hate it probably.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>UI</b>
+
+• Added Pause menu while in-game. Press escape to open and close.
+
+• Added Option menu to main menu.
+
+• Added Back button to the start menu.
+
+• The game will now pause while looking at the map.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+These are all small quality of life things that I felt were necessary
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#FF9800><size=130%><b>Item Changes</b></size></color>
+
+Now for the Items. As stated, almost all items are functionally the same aside from some number adjustments, just with some different under the hood code.
+
+Note: There is two different type of math at use here: Additive vs Multiplicative modifiers. I will give a brief example of the math on how they will work when I refer to them in the notes.
+
+Example case: something is reduced by 5% and the base amount is 20
+
+Additive = 20 - (20 x .05% x (number of stacks))
+
+Multiplicative = 20 * .95 ^ (Number of stacks)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Accelerant Change</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Set Movement speed to a cap of 20 units
+
+• Increased dash duration by 2 seconds
+
+• Increased dash cooldown by 3 seconds
+
+• Enabled Colored After-Image
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• Increases dash distance by 50% (Additive) of base
+
+• Decreases dash cooldown value by 5% (Multiplicative)
+
+• Enables Colored After-Image
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Alienade Change</b>
+
+• Reduced Max health gained from 10->5
+
+• Alienade is now dropped from enemies at a 10% chance on death. It no longer generates in item rooms.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+I may change this in the future. I tried like 3 runs and it was honestly a flip of the coin on if I saw them frequently or not at all
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>AmmoBelt Change</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Increases Magazine size by 6 linearly
+
+• Increases reload time by 0.25 seconds.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• Increases Magazine Size by 100% (Additive) of the base amount.
+
+• Increases reload time by 25% (Additive) of the base amount.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+The item is functionally the same, but is now capable of interacting with other items properly
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Elbow Grease Change</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Decreased reload time by 25% (relative to the value at the time of pick-up).
+
+• Decreased fire rate cooldown by 25% (relative to the value at the time of pick-up).
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• Decreases reload speed by 25% (Multiplicative)
+
+• Decreases fire rate cooldown by 25% (Multiplicative)
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+The item is functionally the same, but is now capable of interacting with other items properly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Explosive Bullets</b>
+
+<color=#BD2000><b>Previous behavior</b></color>
+
+• On first pickup, enable explosive bullets trait.
+
+• Set the explosion radius to 52.5% of the main bullet's radius. This will update with other items.
+
+• Increase explosion's percentile damage by 10%.
+
+• The damage of the explosion is a percent of the bullets total damage. For example, if the bullet does 10 damage and the percentile is 20%, then the explosion will do 2 damage.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• When an enemy is hit, a small explosion is made.
+
+• The damage of the explosion is equivalent to 10% (Additive) of the player's base damage.
+
+• The radius of the explosion is set to 1 + .1 *(number of item) Units.
+
+• Removed Self Damage.
+
+• Bullets only Explode on enemy contact
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+Again, the item is functionally the same, just with some small tweaks.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Hazmat Suit</b>
+
+• Unchanged
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Ice Skates Changes</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Upon hitting a non-boss type enemy, the player will freeze them, stunning for 0.5 seconds. Adds + 0.5 seconds per pickup.
+
+• While Stunned, Enemies will be a cyan color and unable to move or attack
+
+• Increased movement speed by 3 units. Base Movement speed is 8 units.
+
+• Decreased dash cooldown by 33.3% Percent. The base dash cooldown is 0.75 seconds
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• Increases the players base movement speed by 2 units.
+
+• Decreases Dash Cooldown value by 33% (Multiplicative)
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+The item is functionally the same, but is now capable of interacting with other items properly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Ion Splitter Changes</b>
+
+• Reduced damage done by multishot rounds from 25% to 5% of weapon base damage.
+
+• Can still proc all on hit effects (explosive rounds, crits, etc).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Petrifier Changes</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• When obtained, all non-boss enemies have a 10% (actually 11.1%)chance to be petrified upon entering a room.
+
+• Petrified enemies are unable to move/attack and have one health
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• On entering a room with more than 1 enemy, enemies have a 10% (static) chance of being stunned
+
+• The duration of this stun is 5 + 2*(number of items) seconds and is the same as ice skates
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+Technically a small nerf, but also gives value to getting more than one Petrifier.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Training Wheels Changes</b>
+
+• Increased I-Frame bonus from .5 to 1 seconds per pickup.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+A small buff due to the changes to the dash system.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Trump Card Changes</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• On pickup, the trump card effect is enabled. On the final shot of the magazine, the following changes are applied:
+
+•     Bullet size and damage are increased by 4x.
+•     Projectile Speed is reduced by 3x.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• Shots have a (number of items)/52 chance of landing a crit on an enemy.
+
+• Crits double the damage of the shot and can effect explosion and ion splitter shots.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+A change to give more value to Trump card beyond the first pickup. I also want to make more card items and give them synergy together.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>BackFire Changes</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• On first pickup, enable the backfire feature.
+
+• Increase gun damage by 1. Base Damage is 10.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• When the player takes damage, they will spawn a damaging aura around themself.
+
+• This aura does damage to all enemies in it every half a second.
+
+• The damage value of the aura is half of the players base damage (static).
+
+• The aura last 5 + 3*(number of stacks) seconds and has a static 10 second cooldown after ending.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+A rework to backfire felt necessary as the perk felt very niche, but I think that the new perk fits the name still, just in a different way.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#0003BD><size=130%><b>Fixes & Changes</b></size></color>
+
+• Fixed gun locking player out of max semi auto fire rate speed
+     This was due to the reset of the fire rate only occurring when the gun was fired.
+
+• Fixed multishot unintentionally increasing fire rate
+     This was due to the internal code updating the cooldown every time a shot was fired. It probably would not have been noticeable until a high amount of multishot was reached, but a bug nonetheless.
+
+• Added New Gun Sprite and Animations
+
+• Fixed being able to run through walls at high speed (hopefully)
+     Again, very niche bug that only happened in very specific cases, but a bug nonetheless
+
+• Fixed an issue where if more than 1 enemy was killed on the same frame, the room would not unlock, resulting in a softlock.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#FF9800><size=130%><b>Final Notes</b></size></color>
+If you also notice, there is no way to scale damage directly anymore. I think without enemy scaling, this is fine for the moment to not let the player snowball too much.
+I want to do more stuff with items, but I feel that the enemies could also use a touch up at some point. they are somewhat basic and very easy to deal with.
+Also, now that I understand how the item system works, I can give enemies items now too.
+: )
+See you in 2 months!

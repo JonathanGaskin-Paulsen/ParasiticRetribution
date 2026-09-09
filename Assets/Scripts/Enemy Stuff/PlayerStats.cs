@@ -71,7 +71,7 @@ public class PlayerStats : MonoBehaviour
         {
             foreach (ItemList i in PlayerStats.instance.items)
             {
-                i.item.OnDamage(i.stacks);
+                i.item.OnDamage(i.stacks, ref d);
             }
             health -= (d * (100 / (100 + Armor)));
             tempSeconds += Time.deltaTime;
@@ -100,7 +100,7 @@ public class PlayerStats : MonoBehaviour
                 {
                     PlayerStats.instance = null;
                     PlayerPrefs.SetInt("score", currentLevel);
-                    SceneManager.LoadScene("DeathScreen");
+                    gameObject.GetComponent<PlayerMovement>().sceneTransition.moveScene("DeathScreen", 5.0f);
                 }
             }
 

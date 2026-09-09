@@ -18,13 +18,16 @@ public class PlayerMovement : MonoBehaviour
 
     
     private float dashCounter; // Where in the dash are we
-    private float dashCDCounter; // Where in the cooldown are we
+    public float dashCDCounter; // Where in the cooldown are we
+
+    public float dashCooldown; // Public variable for UI to access
 
     private float dashActiveSpeed; // Internal variable for changing speed
 
     public bool Dashing; // Are we currently dashing?
     /*********************End Dash Functionalities *****************/
 
+    public SceneTransition sceneTransition;
 
     public static PlayerMovement instance;
 
@@ -45,8 +48,23 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProcessInputs();
-        ProcessDash();
+        if (sceneTransition == null)
+        {
+            sceneTransition = FindFirstObjectByType<SceneTransition>();
+        }
+        else
+        {
+            if (!sceneTransition.isTransitioning)
+            {
+                ProcessInputs();
+                ProcessDash();
+            }
+            else
+            {
+                rigidBodyPlayer.linearVelocity = Vector2.zero;
+                moveDir = Vector2.zero;
+            }
+        }
     }
 
     //Fixed Update is called at a fixed framerate frame independent of device fps
@@ -107,15 +125,16 @@ public class PlayerMovement : MonoBehaviour
                 float itemstats = 1;
                 foreach (ItemList i in PlayerStats.instance.items)
                 {
-                   itemstats *= i.item.getDashCD(i.stacks);
+                   itemstats += i.item.getDashCD(i.stacks);
                 }
-                foreach (ItemList i in PlayerStats.instance.items)
-                {
-                    dashM += i.item.getDashLength(i.stacks);
-                }
+
+                itemstats = Mathf.Max(0.1f, itemstats);
+
+
                 AfterImage.instance.enable = false;
                 dashActiveSpeed = moveSpeed;
-                dashCDCounter = ((dashLength * dashM * dashCD * itemstats ));
+                dashCooldown = ( dashCD * itemstats);
+                dashCDCounter = dashCooldown;
                 playerStats.Armor -= 300;
                 AfterImage.instance.lifetime = 0.15f;
                 AfterImage.instance.color = false;

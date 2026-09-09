@@ -4,11 +4,12 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     public ShopMenu ShopPrefab;
-    bool isShopOpen = false;
+    public PauseMenu PausePrefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
        ShopPrefab = FindAnyObjectByType<ShopMenu>();
+        PausePrefab = FindAnyObjectByType<PauseMenu>();
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class Shop : MonoBehaviour
         {
             ShopPrefab.gameObject.GetComponent<Animator>().SetTrigger("Show");
             Cursor.visible = true;
-            isShopOpen = true;
+            PausePrefab.menuOpen = true;
         }
     }
 
@@ -33,7 +34,7 @@ public class Shop : MonoBehaviour
         { 
             ShopPrefab.gameObject.GetComponent<Animator>().SetTrigger("Show");
             Cursor.visible = false;
-            isShopOpen = false;
+            PausePrefab.menuOpen = false;
         }
     }
 }

@@ -46,6 +46,8 @@ public class ShootingEnemy : Enemy
 
     public override void Update()
     {
+        base.Update();
+
         if (AI)
         {
             agent.enabled = true;
@@ -57,7 +59,7 @@ public class ShootingEnemy : Enemy
 
         if (AI)
         {
-            base.Update();
+            
             if (cooldown >= attackSpeed && !stunned)
             {
                 Shoot();

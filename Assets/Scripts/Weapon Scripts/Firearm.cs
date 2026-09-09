@@ -32,9 +32,6 @@ public class Firearm : MonoBehaviour
     
     protected float cooldown;
 
-    public bool backFire = false;
-    public bool trumpCard = false;
-
     public Animator ReloadAni;
     public Animator animations;
 
@@ -60,26 +57,14 @@ public class Firearm : MonoBehaviour
     public void Shoot(){
         Vector3 mousepos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 9));
             fireSound.Play();
-            if(ammo == 1 && trumpCard){
-                CreateBullet(1.0f * mousepos, 4 * bulletSize, 4 * damage, projectileSpeed / 3.0f);
-                if (backFire)
-                {
-                    CreateBullet((1.0f * mousepos), 4 * bulletSize, 4 * damage, -projectileSpeed / 3.0f);
-                }
-            }
-            else{
-                CreateBullet(1.0f * mousepos, bulletSize, damage, projectileSpeed);
-                if (backFire)
-                {
-                    CreateBullet((1.0f * mousepos), bulletSize, damage, -projectileSpeed);
-                }
+           
 
-            }
         foreach (ItemList i in PlayerStats.instance.items)
         {
             i.item.OnFire(i.stacks, mousepos);
         }
 
+        CreateBullet(mousepos, bulletSize, damage, projectileSpeed);
 
         ammo--;
         
@@ -105,6 +90,42 @@ public class Firearm : MonoBehaviour
         bullet.GetComponent<Bullet>().damage = _damage;
         Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
         bullet.GetComponent<Bullet>().destination = destination;
+
+        Vector2 center = (Vector2)Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 9));
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(center, 5.0f);
+        Collider2D target = null;
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag == "Enemy")
+            {
+                if(target == null){
+                    target = collider;
+                }
+                else
+                {
+                    float currentDistance = Vector2.Distance(center, target.transform.position);
+                    float newDistance = Vector2.Distance(center, collider.transform.position);
+                    if (newDistance < currentDistance)
+                    {
+                        target = collider;
+                    }
+                }
+              
+            }
+        }
+        if (target != null)
+        {
+            bullet.GetComponent<Bullet>().target = target.gameObject;
+        }
+        else
+        {
+            bullet.GetComponent<Bullet>().target = null;
+        }
+
+
+
     }
 
 

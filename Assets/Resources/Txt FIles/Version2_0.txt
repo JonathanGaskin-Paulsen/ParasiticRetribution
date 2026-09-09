@@ -1,0 +1,356 @@
+<size=175%><b>Parasitic Retribution 2.0</b></size>
+
+<size=130%><b>The Final Touch up and the difficulty tweak</b></size>
+
+One last set of changes as I've been meaning to do some of these things in a sweeping patch, but also I have other plans and can't really continue to work on this project indefinitely and need to do something else.
+
+Any who, this will include a few touch ups, a few patches, bug fixes, and some mechanical changes to the game. They're listed in categories as described, so feel free to scroll and see what was done.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#FF9800><size=130%><b>Gameplay</b></size></color>
+
+<b>Dashes</b>
+
+• Added I-frames to the dash again and allowed interaction with Training wheels.
+
+• Streamlined some of the code underneath the hood.
+
+• Streamlined dash cooldown (Finally)
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+Wanted to add a bit more survivability rather than just hit trading, dodging, and random chancing some healing items, so the dash has been given some I-frames again. It is a set percentage (starting at 20%) of the dashes total duration, so the initial duration is the first 0.1 seconds of the dash, which is rather short, but does give the opportunity to each up projectiles and negate some damage. Plus, you still get the armor bonus while dashing should you either mess up the timing or still need more defensive tools.
+
+Now, when picking up Training wheels, they also have the added benefit of increasing this invulnerability time up to a certain point. The formula for this is not very complex, but the 20% ratio will increase towards, but never actually hit 100%, meaning should you pick up enough training wheels you could be almost invulnerable during the dash. For the math nerds, here is the actual formula, with N being the number of training wheels you've picked up:
+
+a0 = 0.22
+
+a(n+1) = a(n) + (1 - a(n)) * 0.15
+
+Dash cooldown finally works in a way that makes sense for me and hopefully you. Dash cooldown is now the time between you finishing your dash and when you can dash again, and is a flat 5 seconds, not a somewhat arbitrary formula from before. Dash cooldown items, which will be discussed down below, have had their formulas adjusted to work in a much simpler manner (and, likely, closer to how I wanted it to).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Enemy Difficulty Scaling</b>
+
+• Enemy difficulty scaling has been loosly implemented into the game. This is a very basic implemntation of it in the form of numerical changes to the enemies to make it a bit easier to manipulate and adjust. The scaling does not begin until stage to, where the following modifiers are placed onto enemies
+
+•    Non-boss enemies health is increased by 10% per stage, and their damage is increased by 5% per stage.
+
+•    Boss enemies health is increased by 30% per stage, and their damage is increased by 5% per stage.
+
+• This is a very early implementation, so please feel free to comment and report on if this feels too aggressive or easy.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>The Crafting Table</b>
+
+• In lieu of difficulty scaling being implemented, I thought that it might be a good time to give more access to items in a stage as I think this will allow you to properly match the rate at which the game will scale in difficulty, and since many of the items were designed in such a way that the difficulty was more of an endurance test, I don't think the balance will be disrupted too heavily by this (gotta do so of my own QA testing since we have to imagine I have a team for this).
+
+• The Crafting Table works by having 3 static inventory slots per stage:
+
+•   The first slot is reserved for items which in some way increase the players offensive capabilities, which includes the following: Explosive Bullets, Ion Splitter, Petrifier, Rocket Bullets, and Trump Card.
+
+•   The Second Slot is reserved for items which are more utility based in their effect, which includes the following: Accelerant, Ammo belt, Elbow Grease, and Training Wheels.
+
+•   The Third slot is reserved for items which increase the players survivability, which includes the following: Backfire, Hazmat Suit, and Training Wheels.
+
+•   Lastly, the Crafting Table has a set stock per stage of 3 items. Nothing affects these values and the shop does not change nor reset until you leave the current stage, so you can clear the whole stage and come back before you leave if there is an item you want but can't afford.
+
+• The Crafting Table accepts only one type of currency, which is salvage. Salvage is dropped by enemies upon death, with each enemy having a dropping an amount of salvage that does vary. You can see how much salvage you have in the shop window.
+
+  • Most enemies will drop 2 salvage, and each boss drops 10.
+
+• Finally, and most importantly, the Crafting Table can be accessed by walking next to the stool in the spawn room. It simply opens and closes when you either walk in or out of range. You can still shoot, and such, but you cannot pause the game when like this.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Rooms</b>
+
+• Rooms now spawn with a cover over them to prevent you from seeing what is in them.
+
+• The exception to this is the item room and boss room(s) as they are marginally more important to know and you are gonna path towards them eventually anyways, so I feel no need to put an arbitrary middle man in between.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Stage Hazards</b>
+
+• Acid/Stage Hazards should now only affect the player when stepped into
+
+The more technical version of this is there is a separate hitbox for acid pools that is roughly on the feet of the player. Precision may vary as the sprite of the player is a bit janky at times.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#FF9800><size=130%><b>Visuals</b></size></color>
+
+• Added a few new visual/audio effects to some boss attacks and player interactions. Nothing mechanically different from the bosses, it just adds a little needed flair to their attacks (Credit to unTied Games' Super Pixel Effects Gigapack)
+
+• There is now a brief fade transition scene when loading out of the main levels. While this is playing out, all input by the player is blocked.
+
+This is actually a long outstanding problem I had been meaning to solve as it now hides the load time for the levels. This means there should not be situations where you load in and see the map has not finished loading or you walk into a room and the enemies have not had their AI’s started (theoretically).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#FF9800><size=130%><b>Item Reworks</b></size></color>
+
+While the last major update was about balancing items, internally changing the code, and making each item stand out from each other in function, there were still many issues fundamentally with some items that, while it could be ignored before, is much more apparent with the shop, and that is the idea of opportunity cost. Prior to the shop, there was not really a big concern over this since you got an item and it helped you, end of story. But now, there is the possibility of choice, that means that you have decision making power and each item needs to be important enough to have a reason to be worth picking up over one of the other 12 in the game.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Accelerant</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Accelerant increases the dash duration by 50%, but increases the dash cooldown by 100% multiplicatively.
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• Accelerant increases the dash duration by 50%, but increases the dash cooldown by 50% linearly.
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+A small numerical adjustment to accelerant combined with the underlying fix to dash cooldowns funky math. This should make it more desirable to pick up and a lot more consistent to deal with as the prior math made things really messy (I actively saw the dash cooldown become over 100 seconds, it was kinda insane to observe whatever nonsense I cooked up). Alongside this, with how I-Frames are incorporated to the dash, this also increases the amount of I-Frames you get as that is tied to the length of the dash, so a small buff there.
+
+For a better explaination on the dash cooldown, lets take the following example of having 3 accelerants and 2 ice skates (which has also been changed). The dash cooldown would be calculated as follows:
+
+5 * (1 + ( 0.5 * 3 ) - (0.2 * 2) ) = 5 * (1 + 1.5 - 0.4) = 5 * 2.1 = 10.5 seconds
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Alienade, again...</b>
+
+<color=#4CAF50><b>Rework</b></color>
+
+• You can now hold a maximum of 3 Alienades in an inventory. When you press the F key, this will use the Alienade, giving the same heal as before. If you have 3 Alienaides and pick up a 4th one, you will automatically use it and go back down to 3.
+
+• If you are killed by an attack, the game will attempt to use all available Alienades to heal you (This includes the game accounting for your health total going into the negatives). If your health does not go positive, you will still die.
+
+• Removed Alienade from the item room spawn table
+     This is more of a bug fix rather than a balance change. I just kind of never pulled it from the item table after reworking it. It still drops from enemies on a 1/8 chance, so it is still there, don't worry
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+I felt that Alienade was nice, but also had no benefit if you got one at full health, so I felt both giving you control over when you heal and the ability to have heals on the go is rather nice. Also, another survivability tool in your kit is always appreciated as well, just to give you an "oh shit" button and save you should you forget to use them.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>BackFire</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Upon taking damage, a damaging field appeared around the player for a duration before going on an internal cooldown. The cooldown, duration of the effect, and the radius of the effect all increased with the number of Backfires picked up by the player.
+
+<color=#4CAF50><b>New behavior</b></color>
+
+• Upon taking damage, the initial hit of damage is reduced by a flat percentage before being inflicted to the player. This effect has a static 15 second cooldown and the potency is increased by the number of Backfires picked up.
+
+• While on cooldown, backfire heals the player for 1% of their max health every second
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+Backfire is the twin to rocket bullet as a poster child for why I did these item reworks. For what I mean, let's have a small talk about my design philosophy from before and now.
+
+In the previous update, every item just needed to be unique in function and do something for the player, which is not the best method of balance, but it at least made the items interesting. However, in the new version here with the aforementioned idea of opportunity cost, backfire sat in this weird spot of not really being worth the pick up. The item itself is not inherently useful in most cases and to get use out of it, you need to be in a losing position to begin with to get an ok amount of damage against enemies. While this concept can work in other games (look at ROR2 with razor wire and hellfire tincture), the player here does not have both the tools nor survivability to make it useful. I had even considered just adjusting numbers to make it do more of the same, but it still runs the same functional issues of remaining a paper weight until you get hit.
+
+So why this version? While it technically does run the possibility of not doing much in the sense that should you never get hit, this never does anything, it is also always useful to you as we are human and fallible, so having a one time shield can really save you, especially if damage numbers really start hurting. The item is also always doing something per say, whether it be shielding you or giving you a bit more healing, so it is never not benefiting you.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Explosive Bullets</b>
+
+<color=#BD2000><b>Previous behavior</b></color>
+
+• When an enemy is hit, a small explosion is made.
+
+• The damage of the explosion is equivalent to 10 * (Additive)% of the player's base damage.
+
+• The radius of the explosion is set to 1 + .1 *(number of item) Units.
+
+• Removed Self Damage.
+
+• Bullets only Explode on enemy contact
+
+<color=#4CAF50><b>New Behavior</b></color>
+
+• When an enemy is hit, a small explosion is made.
+
+• The damage of the explosion is equivalent to 5 * (number of Explosive Bullets)% of the player's base damage.
+
+• The radius of the explosion is set to 1 + .1 * (number of item) Units.
+
+• Removed Self Damage.
+
+• Bullets only Explode on enemy contact
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+A small adjustment to the damage of the explosions as I wanted to make sure it wasn't too strong given how many you can get and because of how it can interact with other items.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Hazmat Suit</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Increases Hazard Armor by 15
+
+• Increases Armor by 5
+
+<color=#4CAF50><b>New behavior</b></color>
+
+• Increases Hazard Armor by 10
+
+• Increases Armor by 10
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+Hazmat Suit is taking its spot as the armor item in the game. The values for both armor type have been equalized to just make it a bit more consistent. This somewhat make both armor types a bit redundant, but it still leaves more chances for me to play around with each damage type respectively.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<b>Ice Skates</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Increased movement speed by 2 units. 
+
+• Upon walking into a non-boss enemy while dashing, the the enemy is stunned for 0.5 * (Number of Ice skates) seconds. 
+
+•     Stunned enemies are unable to move or hit the player. 
+
+• Dash cooldown decreased by “33%”
+
+<color=#4CAF50><b>New behavior</b></color>
+
+• Upon walking into a non-boss enemy while dashing, the the enemy is stunned for 0.5 * (Number of Ice skates) seconds. 
+
+•     Stunned enemies are unable to move or hit the player. 
+
+• Dash cooldown decreased by 20%
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+This falls in the same vein as accelerant in being both a small adjustment and a pseudo bug fix if accounting for the cooldown changes. Ice skates were fine and continue to be as such.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Ion Splitter</b>
+
+• Redid the logic behind how the extra bullets spawn to increase consistency and prevent situations where the bullets spawn in around the player.
+
+<color=#BD2000><b>Previous behavior</b></color>
+
+• Extra bullets spawn by choosing a random spot in a unit circle around the mouse and moving towards that point instead of the mouse.
+
+<color=#4CAF50><b>New behavior</b></color>
+
+• Extra bullets spawn by choosing a random spot in a unit circle that is place in the direction of the mouse and move towards that point instead of the mouse. The distance of the unit circle from the player increase per Ion splitter
+
+<color=#4CAF50><b>Unchanged</b></color>
+
+• The size of the unit circle increases per ion splitter
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+Nothing mechanically new here. Ion Splitter just had some quirks to it that I wanted to get worked out. Ion Splitter has been a pretty consistent item and I don’t think it needs any mechanical changes in its current state.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Rocket Bullets</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Rocket Bullets granted the player's bullets 5 more units per second in terms of velocity per item picked up.
+
+<color=#4CAF50><b>New behavior</b></color>
+
+• Rocket Bullets provides the player's bullets with 2 new effects.
+
+• Bullets can now track towards enemies. Tracking occurs by collecting all targets in a 5 unit radius of the mouse and selecting the one closest to the mouse at the time of firing. The aggressiveness of the tracking increases based on how many stacks of rocket bullets you have
+
+• Bullets now increase by a very small percentage of their base damage for every frame that they are alive. The rate at which the damage scales up is determined by how many stacks of rocket bullets you have
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+So once again, I had a bone to pick with this item as it once again was no longer up to par with the new design philosophy of items and I’ll point out why. Previously, this item was stripped down to only provide a small boost to projectile speed, which, once again, did fit the old philosophy of doing something and something unique, but under this new lens, this item does functionally nothing.
+
+While in concept the idea of the bullet reaching its destination faster works in theory, when most of the time the bullet is in play for at most a second, this does not really do much. While you could argue nuances on killing enemies faster or smaller things, I can say with confidence that I would want literally any other item to drop other than rocket bullets. It is not a useful item and somewhat harms the player by taking the place of a better item spawn.
+
+So now what about the new version? Well it does remain unique in its function and role, and is never not useful to have. Admittedly, the tracking is more or less a nice add-on rather than the main focus as it does not get terribly aggressive until you get a few of them. What I imagine the main appeal will be is the damage as this now serves as the only way to modify the damage of the bullets before they make contact, which is important as every other damage item (except petrifier, we’ll get to that) gets a technical boost due to this since this damage is added while the bullet is live, not in a final calculation, meaning the number that is multiplied by all these other items is now bigger. So now I’ll just have to see how this all plays out.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Petrifier</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Upon entering a room with more than one enemy, there was a 10% chance to stun enemies for 5 + 2*(number of petrifiers) seconds.
+
+<color=#4CAF50><b>New behavior</b></color>
+
+• Upon hitting an enemy, inflict a poison damage over time effect on an enemy for 3 seconds
+
+• The poison inflicts an instance of damage every second. The damage is equal to 2 * (number of petrifiers) damage per instance.
+
+• Hitting an already poisoned target will extend the timer by another 3 seconds up to a limit. This limit is equal to 5 * (Number of Petrifiers) seconds
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+Petrifier has always been a very weird item to work with as it can very easily fluctuate between being weak and being strong depending on what I do with it. In the initial Version of this game, it is probably the strongest item in the game as being able to make any room with more than one enemy potentially become a cakewalk, but now it’s useful in some cases, but just gets out performed by ice skates to be honest. I could keep fiddling around with the idea of petrifier, but I don’t think it would fix the problem with it.
+
+So, keeping with the snake theme, you get a good damage over time effect that unintentionally avoids damage resistances (gonna see if I live to regret this). It also has a unique role of keeping the pressure on even if you need to focus elsewhere, and there is synergy between it and ion splitter for getting the poison time up fast.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Trump card</b>
+
+<color=#BD2000><b>Previous Behavior</b></color>
+
+• Shots had a (Number of trump cards)/52 chance of dealing double damage to the enemy
+
+<color=#4CAF50><b>New behavior</b></color>
+
+• Shots have a (Number of trump cards)/13 chance to deal 50% more damage. This is applied right before damage is applied to any formulas.
+
+• If you have more than 13 Trump Cards, this effect can occur more than once. (I.e., if you have 20, there is a 100% chance to deal 50% damage and a ~53% chance to deal 100% more damage instead)
+
+<color=#64B5F6><b>Developer Commentary</b></color>
+
+Trump card is probably one of the simplest items that just works, but is also just way too inconsistent. When the double damage came through, it was nice, but you were not likely to get enough trump cards to make those odds worth relying on. Furthermore, if you somehow managed to get lucky enough to get to 52 trump cards (if you somehow managed this, then congrats, you had way more patience than me), then the 53rd did nothing.
+
+So with all of that in mind, the requirement was quartered, but the damage bonus was also slashed just a bit. However you do get a benefit of getting over 100% critical hit chance now.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#0003BD><size=130%><b>Bug Fixes</b></size></color>
+
+• Fixed an issue where the buttons in the menus had a slightly larger interactable area than intended.
+
+• Fixed an issue where the Melee boss would not stop during his stomp attack. They will now come to a full and complete stop when they start this attack so it doesn't look as janky.
+
+• Fixed an issue where you could shoot the Turret Boss through the door
+
+I didn’t even know this was an issue. I just happened upon it while testing something else.
+
+• Fixed an issue where some sound and music would not play during gameplay
+
+I honestly don’t know where the music went like 2 updates ago, but it's back now. Not sure why it left in the first place.
+
+• Fixed an issue in the application order of Trump card and other damage effects.
+
+Damage modifiers now occur in the following order:
+
+1. Base Damage
+
+2. Rocket Bullets
+
+3. Trump Card
+
+4. Explosive bullets
+
+For a more verbal explaination, the base damage of the bullet is first modified by rocket bullets. Then, if trump card would proc, then the damage is multiplied by the respective modifier. Then, the damage of the bullet at that point is used for the explosive bullet damage calculation. This was the intended order of operations, but this was not consistently occuring before as it was dictated by your inventory order.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<color=#FF9800><size=130%><b>Final Notes</b></size></color>
+I think this will likely be the last major change I do for this project unfortunately. There are definely other ideas I had in mind for this game, such as changing the enemy AI to be a bit more interesting, add more unique enemies and variants, and redoing making the room generation more complex, but I am limited in the fact that I can't fully fix the game in a way I would like without just some of the main parts of it. It has been fun to work on and I am happy to have had the chance to, but I think it is time for me to move on. 
+I will likely still do small hotfixes should there be bugs or balance issues, but those are going to be on if there is anything very much out of line in terms of balance. I hope you can enjoy what has been made here to the fullest!
