@@ -271,6 +271,7 @@ public class Petrifier : Item
     {
 		enemy.Poison();
 		enemy.poisonDamage = 2.0f * (float)stacks;
+		enemy.poisonDuration = 5.0f * (float)stacks;
     }
 }
 

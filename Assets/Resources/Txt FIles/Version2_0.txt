@@ -34,7 +34,7 @@ Dash cooldown finally works in a way that makes sense for me and hopefully you. 
 
 <b>Enemy Difficulty Scaling</b>
 
-• Enemy difficulty scaling has been loosly implemented into the game. This is a very basic implemntation of it in the form of numerical changes to the enemies to make it a bit easier to manipulate and adjust. The scaling does not begin until stage to, where the following modifiers are placed onto enemies
+• Enemy difficulty scaling has been loosely implemented into the game. This is a very basic implementation of it in the form of numerical changes to the enemies to make it a bit easier to manipulate and adjust. The scaling does not begin until stage to, where the following modifiers are placed onto enemies
 
 •    Non-boss enemies health is increased by 10% per stage, and their damage is increased by 5% per stage.
 
@@ -112,7 +112,7 @@ While the last major update was about balancing items, internally changing the c
 
 A small numerical adjustment to accelerant combined with the underlying fix to dash cooldowns funky math. This should make it more desirable to pick up and a lot more consistent to deal with as the prior math made things really messy (I actively saw the dash cooldown become over 100 seconds, it was kinda insane to observe whatever nonsense I cooked up). Alongside this, with how I-Frames are incorporated to the dash, this also increases the amount of I-Frames you get as that is tied to the length of the dash, so a small buff there.
 
-For a better explaination on the dash cooldown, lets take the following example of having 3 accelerants and 2 ice skates (which has also been changed). The dash cooldown would be calculated as follows:
+For a better explanation on the dash cooldown, lets take the following example of having 3 accelerants and 2 ice skates (which has also been changed). The dash cooldown would be calculated as follows:
 
 5 * (1 + ( 0.5 * 3 ) - (0.2 * 2) ) = 5 * (1 + 1.5 - 0.4) = 5 * 2.1 = 10.5 seconds
 
@@ -214,7 +214,7 @@ Hazmat Suit is taking its spot as the armor item in the game. The values for bot
 
 • Increased movement speed by 2 units. 
 
-• Upon walking into a non-boss enemy while dashing, the the enemy is stunned for 0.5 * (Number of Ice skates) seconds. 
+• Upon walking into a non-boss enemy while dashing, the enemy is stunned for 0.5 * (Number of Ice skates) seconds. 
 
 •     Stunned enemies are unable to move or hit the player. 
 
@@ -222,7 +222,7 @@ Hazmat Suit is taking its spot as the armor item in the game. The values for bot
 
 <color=#4CAF50><b>New behavior</b></color>
 
-• Upon walking into a non-boss enemy while dashing, the the enemy is stunned for 0.5 * (Number of Ice skates) seconds. 
+• Upon walking into a non-boss enemy while dashing, the enemy is stunned for 0.5 * (Number of Ice skates) seconds. 
 
 •     Stunned enemies are unable to move or hit the player. 
 
@@ -347,10 +347,10 @@ Damage modifiers now occur in the following order:
 
 4. Explosive bullets
 
-For a more verbal explaination, the base damage of the bullet is first modified by rocket bullets. Then, if trump card would proc, then the damage is multiplied by the respective modifier. Then, the damage of the bullet at that point is used for the explosive bullet damage calculation. This was the intended order of operations, but this was not consistently occuring before as it was dictated by your inventory order.
+For a more verbal explanation, the base damage of the bullet is first modified by rocket bullets. Then, if trump card would proc, then the damage is multiplied by the respective modifier. Then, the damage of the bullet at that point is used for the explosive bullet damage calculation. This was the intended order of operations, but this was not consistently occurring before as it was dictated by your inventory order.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 <color=#FF9800><size=130%><b>Final Notes</b></size></color>
-I think this will likely be the last major change I do for this project unfortunately. There are definely other ideas I had in mind for this game, such as changing the enemy AI to be a bit more interesting, add more unique enemies and variants, and redoing making the room generation more complex, but I am limited in the fact that I can't fully fix the game in a way I would like without just some of the main parts of it. It has been fun to work on and I am happy to have had the chance to, but I think it is time for me to move on. 
+I think this will likely be the last major change I do for this project unfortunately. There are definitely other ideas I had in mind for this game, such as changing the enemy AI to be a bit more interesting, add more unique enemies and variants, and redoing making the room generation more complex, but I am limited in the fact that I can't fully fix the game in a way I would like without just some of the main parts of it. It has been fun to work on and I am happy to have had the chance to, but I think it is time for me to move on. 
 I will likely still do small hotfixes should there be bugs or balance issues, but those are going to be on if there is anything very much out of line in terms of balance. I hope you can enjoy what has been made here to the fullest!

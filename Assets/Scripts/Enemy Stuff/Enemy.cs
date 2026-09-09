@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     public float poisonCooldown;
 
     public float poisonDamage;
+
+    public float poisonDuration = 5.0f;
     protected NavMeshAgent agent;
 
     public AudioSource deathAudio;
@@ -131,9 +133,9 @@ public class Enemy : MonoBehaviour
     public virtual void Poison()
     {
         poisonTimer += 3.0f;
-        if (poisonTimer > 5)
+        if (poisonTimer > poisonDuration)
         {
-            poisonTimer = 5f;
+            poisonTimer = poisonDuration;
         }
     }
 
