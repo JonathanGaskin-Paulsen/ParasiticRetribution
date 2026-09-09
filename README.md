@@ -10,7 +10,7 @@ Parasitic Retribution is a simple rogue-like game originally developed in Unity 
 
 During the original development, I contributed primarily to programming tasks, focusing on enemy AI and weapon functionality.
 
-While the initial version was a collaborative effort, I have continued making changes to the project independently. These updates are for personal and educational purposes only—I do not claim full credit for the original work and have no intention of releasing the project officially out of respect for the original team. 
+While the initial version was a collaborative effort, I have continued making changes to the project independently. These updates are for personal and educational purposes only. I do not claim full credit for the original work and have no intention of releasing the project officially out of respect for the original team. 
   
 ## Play the Original Version
 You can find the original release of the game here:  
@@ -18,8 +18,7 @@ You can find the original release of the game here:
  
 ## Current Version
 I have made modifications to the original game. You can play this updated version here:  
-[PR V2 on itch.io](https://indigentharp291.itch.io/pr-v2)  
-Password: 123456  
+[PR V2 on itch.io](https://indigentharp291.itch.io/pr-v2)
 
 ## Installation & Usage
 1. Download the Unity Project
@@ -27,10 +26,10 @@ Password: 123456
     - Open Unity Hub and add the project to your list of active projects.
     - This project is currently using Unity Editor version 6000.2.10f1
 
-3. Play the Game
+2. Play the Game
     - An executable file is included within the Unity project folder.
     - Alternatively, play online via the itch.io link above.  
-## Installation & Usage
+## Gameplay Features and Mechanics 
 - Rogue-like gameplay mechanics
 - Procedurally generated levels
 - Enemy AI with adaptive behavior
@@ -50,7 +49,7 @@ Password: 123456
 ## Fonts
 - Daydream by DoubleGum
   
-## License/Disclaimer
+## Disclaimer
 This project is for educational and personal use only.  
 Original work credited to the team listed above.  
 No official release or monetization is intended.  
